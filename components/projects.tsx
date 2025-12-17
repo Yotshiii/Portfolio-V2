@@ -83,19 +83,19 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card
               key={project.title}
-              className={`flex flex-col group relative overflow-hidden transition-all duration-150 hover:scale-105 hover:-translate-y-2 hover:shadow-xl ${
+              className={`flex flex-col group relative overflow-hidden transition-all hover:scale-105 hover:-translate-y-2 hover:shadow-xl ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{
                 transitionDelay: isVisible ? "0ms" : `${index * 150}ms`,
                 transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                transitionDuration: isVisible ? "150ms" : "1000ms",
+                transitionDuration: isVisible ? "300ms" : "1000ms",
               }}
             >
-              <div className="absolute inset-0 transition-transform duration-150 group-hover:scale-105" />
+              <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-105" />
 
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-150`}
+                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
               />
 
               <CardHeader className="relative z-10">
@@ -108,7 +108,7 @@ export function Projects() {
                     <Badge
                       key={tech}
                       variant="outline"
-                      className="group-hover:border-primary/50 transition-colors duration-150"
+                      className="group-hover:border-primary/50 transition-colors duration-300"
                     >
                       {tech}
                     </Badge>
@@ -120,7 +120,7 @@ export function Projects() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="hover:bg-primary/20 hover:border-primary/50 bg-transparent transition-all duration-150"
+                      className="hover:bg-primary/20 hover:border-primary/50 bg-transparent transition-all duration-300"
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
@@ -133,7 +133,7 @@ export function Projects() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="hover:bg-secondary/20 hover:border-secondary/50 bg-transparent transition-all duration-150"
+                      className="hover:bg-secondary/20 hover:border-secondary/50 bg-transparent transition-all duration-300"
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />

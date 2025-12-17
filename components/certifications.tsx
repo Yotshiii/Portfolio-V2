@@ -80,21 +80,21 @@ export function Certifications() {
               {certifications.map((cert, index) => (
                 <Card
                   key={cert.name}
-                  className={`transition-all duration-150 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-warning/20 group ${
+                  className={`transition-all hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-warning/20 group ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{
                     transitionDelay: isVisible ? "0ms" : `${300 + index * 150}ms`,
                     transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                    transitionDuration: isVisible ? "150ms" : "1000ms",
+                    transitionDuration: isVisible ? "300ms" : "1000ms",
                   }}
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
-                      <Award className="h-5 w-5 text-warning group-hover:text-primary transition-colors duration-150" />
+                      <Award className="h-5 w-5 text-warning group-hover:text-primary transition-colors duration-300" />
                       <Badge
                         variant={cert.status === "Earned" ? "default" : "secondary"}
-                        className="group-hover:scale-110 transition-transform duration-150"
+                        className="group-hover:scale-110 transition-transform duration-300"
                       >
                         {cert.status}
                       </Badge>
@@ -118,13 +118,13 @@ export function Certifications() {
               Achievements
             </h3>
             <Card
-              className={`transition-all duration-150 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-success/20 ${
+              className={`transition-all hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-success/20 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{
                 transitionDelay: isVisible ? "0ms" : "700ms",
                 transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                transitionDuration: isVisible ? "150ms" : "1000ms",
+                transitionDuration: isVisible ? "300ms" : "1000ms",
               }}
             >
               <CardContent className="pt-6">
