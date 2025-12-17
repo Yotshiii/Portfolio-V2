@@ -78,7 +78,7 @@ export function Skills() {
               style={{
                 transitionDelay: isVisible ? "0ms" : `${index * 150}ms`,
                 transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                transitionDuration: isVisible ? "300ms" : "1000ms",
+                transitionDuration: isVisible ? "500ms" : "1000ms",
               }}
             >
               <CardHeader>

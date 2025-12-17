@@ -89,7 +89,7 @@ export function Contact() {
                 style={{
                   transitionDelay: isVisible ? "0ms" : `${400 + index * 100}ms`,
                   transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                  transitionDuration: isVisible ? "300ms" : "1000ms",
+                  transitionDuration: isVisible ? "500ms" : "1000ms",
                 }}
               >
                 <CardContent className="pt-6">

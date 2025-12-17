@@ -89,7 +89,7 @@ export function Projects() {
               style={{
                 transitionDelay: isVisible ? "0ms" : `${index * 150}ms`,
                 transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                transitionDuration: isVisible ? "300ms" : "1000ms",
+                transitionDuration: isVisible ? "500ms" : "1000ms",
               }}
             >
               <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-105" />

@@ -86,7 +86,7 @@ export function Certifications() {
                   style={{
                     transitionDelay: isVisible ? "0ms" : `${300 + index * 150}ms`,
                     transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                    transitionDuration: isVisible ? "300ms" : "1000ms",
+                    transitionDuration: isVisible ? "500ms" : "1000ms",
                   }}
                 >
                   <CardHeader>
@@ -124,7 +124,7 @@ export function Certifications() {
               style={{
                 transitionDelay: isVisible ? "0ms" : "700ms",
                 transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                transitionDuration: isVisible ? "300ms" : "1000ms",
+                transitionDuration: isVisible ? "500ms" : "1000ms",
               }}
             >
               <CardContent className="pt-6">
