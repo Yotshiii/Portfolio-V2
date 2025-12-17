@@ -71,9 +71,8 @@ export function Contact() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          {
-            "I'm currently seeking internship opportunities and open to collaborating on security research projects. Let's connect!"
-          }
+          I'm currently seeking internship opportunities and open to collaborating on security research projects. Let's
+          connect!
         </p>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -84,7 +83,7 @@ export function Contact() {
             return (
               <Card
                 key={method.label}
-                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-500 group ${
+                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-200 group ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
@@ -97,7 +96,9 @@ export function Contact() {
                     {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
                     className="flex flex-col items-center gap-2"
                   >
-                    <Icon className={`h-8 w-8 text-${method.color} group-hover:scale-125 transition-transform`} />
+                    <Icon
+                      className={`h-8 w-8 text-${method.color} group-hover:scale-125 transition-transform duration-150`}
+                    />
                     <span className="text-sm font-medium">{method.label}</span>
                   </a>
                 </CardContent>
@@ -109,7 +110,7 @@ export function Contact() {
         <Button
           size="lg"
           asChild
-          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
+          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-200 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
           }`}
           style={{

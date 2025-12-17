@@ -33,7 +33,7 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all bg-transparent"
+              className="hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all duration-150 bg-transparent"
             >
               <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
@@ -43,7 +43,7 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-secondary/10 hover:border-secondary/50 hover:scale-110 transition-all bg-transparent"
+              className="hover:bg-secondary/10 hover:border-secondary/50 hover:scale-110 transition-all duration-150 bg-transparent"
             >
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
@@ -53,7 +53,7 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-accent/10 hover:border-accent/50 hover:scale-110 transition-all bg-transparent"
+              className="hover:bg-accent/10 hover:border-accent/50 hover:scale-110 transition-all duration-150 bg-transparent"
             >
               <a href="mailto:contact@example.com" aria-label="Email">
                 <Mail className="h-5 w-5" />

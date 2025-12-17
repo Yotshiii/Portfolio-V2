@@ -91,7 +91,7 @@ export function Projects() {
               }}
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-200`}
+                className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-150`}
               />
 
               <CardHeader className="relative z-10">
@@ -116,7 +116,7 @@ export function Projects() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="hover:bg-primary/20 hover:border-primary/50 bg-transparent"
+                      className="hover:bg-primary/20 hover:border-primary/50 bg-transparent transition-all duration-150"
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
@@ -129,7 +129,7 @@ export function Projects() {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="hover:bg-secondary/20 hover:border-secondary/50 bg-transparent"
+                      className="hover:bg-secondary/20 hover:border-secondary/50 bg-transparent transition-all duration-150"
                     >
                       <a href={project.demo} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
