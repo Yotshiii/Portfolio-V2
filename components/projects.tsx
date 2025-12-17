@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { ExternalLink, Github, X } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
@@ -169,15 +169,6 @@ export function Projects() {
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-4 top-4 rounded-full hover:bg-destructive/20"
-            onClick={() => setIsModalOpen(false)}
-          >
-            <X className="h-4 w-4" />
-          </Button>
-
           {selectedProject && (
             <>
               <DialogHeader>
