@@ -80,11 +80,13 @@ export function Certifications() {
               {certifications.map((cert, index) => (
                 <Card
                   key={cert.name}
-                  className={`transition-all duration-150 hover:scale-105 hover:shadow-xl hover:shadow-warning/20 group ${
+                  className={`transition-all duration-150 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-warning/20 group ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{
-                    transitionDelay: `${300 + index * 150}ms`,
+                    transitionDelay: isVisible ? "0ms" : `${300 + index * 150}ms`,
+                    transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
+                    transitionDuration: isVisible ? "150ms" : "1000ms",
                   }}
                 >
                   <CardHeader>
@@ -116,11 +118,13 @@ export function Certifications() {
               Achievements
             </h3>
             <Card
-              className={`transition-all duration-150 hover:shadow-xl hover:shadow-success/20 ${
+              className={`transition-all duration-150 hover:scale-105 hover:-translate-y-2 hover:shadow-xl hover:shadow-success/20 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{
-                transitionDelay: "700ms",
+                transitionDelay: isVisible ? "0ms" : "700ms",
+                transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
+                transitionDuration: isVisible ? "150ms" : "1000ms",
               }}
             >
               <CardContent className="pt-6">

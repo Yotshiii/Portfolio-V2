@@ -83,11 +83,13 @@ export function Contact() {
             return (
               <Card
                 key={method.label}
-                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-150 group ${
+                className={`hover:scale-110 hover:-translate-y-2 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-150 group ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
-                  transitionDelay: `${400 + index * 100}ms`,
+                  transitionDelay: isVisible ? "0ms" : `${400 + index * 100}ms`,
+                  transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
+                  transitionDuration: isVisible ? "150ms" : "1000ms",
                 }}
               >
                 <CardContent className="pt-6">
