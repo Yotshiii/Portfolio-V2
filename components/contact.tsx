@@ -83,13 +83,11 @@ export function Contact() {
             return (
               <Card
                 key={method.label}
-                className={`hover:scale-110 hover:-translate-y-2 hover:shadow-xl hover:shadow-${method.color}/20 transition-all group ${
+                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-150 group ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
-                  transitionDelay: isVisible ? "0ms" : `${400 + index * 100}ms`,
-                  transitionProperty: isVisible ? "transform, box-shadow" : "opacity, transform",
-                  transitionDuration: isVisible ? "500ms" : "1000ms",
+                  transitionDelay: `${400 + index * 100}ms`,
                 }}
               >
                 <CardContent className="pt-6">
@@ -99,7 +97,7 @@ export function Contact() {
                     className="flex flex-col items-center gap-2"
                   >
                     <Icon
-                      className={`h-8 w-8 text-${method.color} group-hover:scale-125 transition-transform duration-300`}
+                      className={`h-8 w-8 text-${method.color} group-hover:scale-125 transition-transform duration-150`}
                     />
                     <span className="text-sm font-medium">{method.label}</span>
                   </a>
@@ -112,7 +110,7 @@ export function Contact() {
         <Button
           size="lg"
           asChild
-          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
+          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-150 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
           }`}
           style={{
