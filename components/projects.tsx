@@ -83,7 +83,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card
               key={project.title}
-              className={`flex flex-col transition-all duration-200 hover:scale-105 hover:shadow-2xl group relative overflow-hidden ${
+              className={`flex flex-col transition-all duration-150 hover:scale-105 hover:shadow-2xl group relative overflow-hidden ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{

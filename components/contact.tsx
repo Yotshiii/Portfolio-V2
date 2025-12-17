@@ -83,7 +83,7 @@ export function Contact() {
             return (
               <Card
                 key={method.label}
-                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-200 group ${
+                className={`hover:scale-110 hover:shadow-xl hover:shadow-${method.color}/20 transition-all duration-150 group ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{
@@ -110,7 +110,7 @@ export function Contact() {
         <Button
           size="lg"
           asChild
-          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-200 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
+          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-150 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
           }`}
           style={{
