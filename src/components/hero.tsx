@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { site } from "@/content/site"
 
 export function Hero() {
   return (
@@ -14,18 +15,17 @@ export function Hero() {
       <div className="max-w-4xl w-full relative z-10">
         <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-            <p className="text-sm font-medium text-primary">Available for opportunities</p>
+            <p className="text-sm font-medium text-primary">{site.person.availabilityBadge}</p>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold text-balance bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            Evan JOASSON
+            {site.person.name}
           </h1>
           <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-            CyberArchitect Apprentice and Cybersecurity Engineering Student
+            {site.person.role}
           </p>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            I build secure systems and analyze vulnerabilities. Passionate about protecting digital infrastructure and
-            solving complex security challenges.
+            {site.person.summary}
           </p>
 
           <div className="flex items-center gap-4 pt-4">
@@ -33,9 +33,9 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all duration-150 bg-transparent"
+              className="hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all bg-transparent"
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href={site.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
@@ -43,9 +43,9 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-secondary/10 hover:border-secondary/50 hover:scale-110 transition-all duration-150 bg-transparent"
+              className="hover:bg-secondary/10 hover:border-secondary/50 hover:scale-110 transition-all bg-transparent"
             >
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
@@ -53,9 +53,9 @@ export function Hero() {
               variant="outline"
               size="icon"
               asChild
-              className="hover:bg-accent/10 hover:border-accent/50 hover:scale-110 transition-all duration-150 bg-transparent"
+              className="hover:bg-accent/10 hover:border-accent/50 hover:scale-110 transition-all bg-transparent"
             >
-              <a href="mailto:contact@example.com" aria-label="Email">
+              <a href={site.links.email} aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
             </Button>
