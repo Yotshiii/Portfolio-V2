@@ -5,27 +5,28 @@ export type SocialLink = {
 
 export const site = {
   person: {
-    name: "Alex Chen",
-    role: "Cybersecurity Engineering Student",
-    availabilityBadge: "Available for opportunities",
+    name: "Evan JOASSON",
+    rolePrimary: "Apprenti architecte cybersécurité,",
+    roleSecondary: "Etudiant ingénieur en informatique spécialisé en cybersécurité",
+    availabilityBadge: "En recherche d'un stage à l'international dès Mai 2026",
     summary:
-      "I build secure systems and analyze vulnerabilities. Passionate about protecting digital infrastructure and solving complex security challenges.",
+      "Je sécurise et construis des systèmes et infrastructures sécurisées, mais j'adore aussi résoudre des problèmes complexes et apprendre de nouvelles technologies.",
   },
   meta: {
-    title: "Alex Chen - Cybersecurity Engineer",
+    title: "Evan JOASSON - Etudiant Ingénieur en Cybersécurité",
     description:
-      "Portfolio of a cybersecurity engineering student specializing in network security, penetration testing, and secure software development.",
+      "Portfolio d'un étudiant ingénieur en informatique spécialisé en cybersécurité, présentant ses compétences, projets et certifications.",
   },
   nav: [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
+    { name: "À propos", href: "#about" },
+    { name: "Compétences", href: "#skills" },
+    { name: "Projets", href: "#projects" },
     { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ],
   links: {
-    github: "https://github.com",
+    github: "https://github.com/Yotshiii",
     linkedin: "https://linkedin.com",
     email: "mailto:contact@example.com",
     resume: "/resume.pdf",

@@ -21,9 +21,11 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold text-balance bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             {site.person.name}
           </h1>
-          <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-            {site.person.role}
+          <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent flex flex-col">
+            <span>{site.person.rolePrimary}</span>
+            <span>{site.person.roleSecondary}</span>
           </p>
+
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
             {site.person.summary}
           </p>

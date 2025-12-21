@@ -33,7 +33,7 @@ export function About() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          About
+          À propos
         </h2>
         <div
           className={`space-y-4 text-lg text-muted-foreground leading-relaxed transition-all duration-1000 delay-200 ${
@@ -41,18 +41,11 @@ export function About() {
           }`}
         >
           <p>
-            I'm a cybersecurity engineering student specializing in network security, penetration testing, and secure
-            software development. My focus is on understanding both offensive and defensive security techniques to build
-            resilient systems.
+            Je suis étudiant en ingénierie informatique avec une spécialité en cybersécurité. 
+            <br />Mon objectif ? Comprendre à la fois les techniques offensives et défensives pour construire des systèmes et des infrastructures sécurisées sur le long terme.
           </p>
           <p>
-            Currently pursuing my degree in Cybersecurity, I've gained hands-on experience through CTF competitions,
-            security research projects, and internships. I'm particularly interested in cloud security, cryptography,
-            and threat intelligence.
-          </p>
-          <p>
-            When I'm not breaking and securing systems, you'll find me contributing to open-source security tools,
-            reading the latest CVE reports, or participating in bug bounty programs.
+            Actuellement en train de poursuivre mon diplôme en informatique / cybersécurité en alternance, j'acquiert des compétences pratiques en travaillant sur des projets réels tout en étudiant les concepts théoriques.
           </p>
         </div>
       </div>
