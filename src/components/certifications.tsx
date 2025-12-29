@@ -83,9 +83,6 @@ export function Certifications() {
                   className={`transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-warning/20 group ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
-                  style={{
-                    transitionDelay: `${300 + index * 150}ms`,
-                  }}
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -119,9 +116,6 @@ export function Certifications() {
               className={`transition-all duration-200 hover:shadow-xl hover:shadow-success/20 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
-              style={{
-                transitionDelay: "700ms",
-              }}
             >
               <CardContent className="pt-6">
                 <ul className="space-y-3">

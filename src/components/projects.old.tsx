@@ -5,8 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
+import type { Project } from "@/types/project"
 
-const projects = [
+
+const projects: Project[] = [
   {
     title: "Network Intrusion Detection System",
     description:

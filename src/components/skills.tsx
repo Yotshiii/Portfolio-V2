@@ -75,9 +75,6 @@ export function Skills() {
               className={`transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-${category.color}/20 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
-              style={{
-                transitionDelay: `${index * 150}ms`,
-              }}
             >
               <CardHeader>
                 <CardTitle className="text-xl flex items-center gap-2">

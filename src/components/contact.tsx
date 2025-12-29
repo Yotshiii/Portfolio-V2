@@ -98,9 +98,6 @@ export function Contact() {
                 className={`hover:scale-110 hover:shadow-xl ${accent.shadow} transition-all duration-500 group ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
-                style={{
-                  transitionDelay: `${400 + index * 100}ms`,
-                }}
               >
                 <CardContent className="pt-6">
                   <a
