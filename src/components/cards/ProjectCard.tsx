@@ -91,7 +91,7 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
         {/* Removed transition-opacity duration-300 as it conflicts with custom CSS */}
         <div className={`card-info ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <h1>{project.title}</h1>
-          <p>{project.description}</p>
+          <p>{project.shortDescription}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tags.slice(0, 3).map(tag => (
               <span key={tag} className="text-[10px] bg-white/10 px-2 py-0.5 rounded border border-white/10 font-bold uppercase tracking-widest">

@@ -2,17 +2,27 @@ export type Project3D = {
   id: string
   title: string
   description: string
-  /**
-   * Path to an image in /public (e.g. "/projects/my-project.jpg").
-   * Used as a background image for the 3D card.
-   */
+  shortDescription: string
   image: string
   /** Optional gallery images for the modal (falls back to `image`). */
   images?: string[]
+  /** Optional content blocks for custom content in the modal. */
+  blocks?: ContentBlock[]
   /** Technologies / tags shown on the card + modal. */
   tags: string[]
   /** Small label shown in the modal header. */
   category: string
   /** Primary link used by the modal "Launch" button. */
   link: string
+}
+
+export type ContentBlock = {
+  /** Title of the content block. */
+  title: string
+  /** Optional content of the content block. */
+  content?: string
+  /** Optional list of items in the content block. */
+  items?: string[]
+  /** Optional id to group related blocks together. */
+  groupId?: string
 }

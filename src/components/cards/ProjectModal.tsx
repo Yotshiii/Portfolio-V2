@@ -16,6 +16,7 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
   const [isMounted, setIsMounted] = useState(false);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [fullScreenImg, setFullScreenImg] = useState<string | null>(null);
+  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
 
   const gallery = useMemo(() => {
     const imgs = project.images && project.images.length > 0 ? project.images : [project.image];
@@ -46,6 +47,24 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
   const prevImg = (e: React.MouseEvent) => {
     e.stopPropagation();
     setCurrentImgIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
+  };
+
+  const handleNextProject = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSlideDirection('left');
+    setTimeout(() => {
+      onNext();
+      setSlideDirection(null);
+    }, 300);
+  };
+
+  const handlePrevProject = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSlideDirection('right');
+    setTimeout(() => {
+      onPrev();
+      setSlideDirection(null);
+    }, 300);
   };
 
   const openLightbox = (img: string) => {
@@ -107,7 +126,7 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
           
           {/* Previous Project Arrow */}
           <button 
-            onClick={(e) => { e.stopPropagation(); onPrev(); }}
+            onClick={handlePrevProject}
             className="hidden md:flex p-4 rounded-full glass border border-white/10 text-white/50 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-all transform hover:-translate-x-1"
             title="Previous Project"
           >
@@ -116,7 +135,9 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
             </svg>
           </button>
 
-          <div className="w-full max-w-6xl glass rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row h-[720px] bg-gray-950/80">
+          <div className={`w-full max-w-6xl glass rounded-3xl overflow-hidden border border-white/10 shadow-2xl flex flex-col md:flex-row h-[720px] bg-gray-950/80 transition-all duration-300 ${
+            slideDirection === 'left' ? '-translate-x-full opacity-0' : slideDirection === 'right' ? 'translate-x-full opacity-0' : 'translate-x-0 opacity-100'
+          }`}>
             {/* Left Side - Image Carousel */}
             <div className="w-full md:w-1/2 relative h-[720px] overflow-hidden group/img">
               {gallery.map((img, idx) => (
@@ -138,7 +159,7 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
                 <>
                   <button 
                     onClick={prevImg}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass border border-white/10 text-white opacity-0 group-hover/img:opacity-100 transition-opacity hover:bg-indigo-500/20 z-10"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-indigo-500/30 border border-indigo-500/50 text-white opacity-0 group-hover/img:opacity-100 transition-opacity hover:bg-indigo-500/50 z-10"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -146,7 +167,7 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
                   </button>
                   <button 
                     onClick={nextImg}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full glass border border-white/10 text-white opacity-0 group-hover/img:opacity-100 transition-opacity hover:bg-indigo-500/20 z-10"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-indigo-500/30 border border-indigo-500/50 text-white opacity-0 group-hover/img:opacity-100 transition-opacity hover:bg-indigo-500/50 z-10"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -201,6 +222,58 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
                   </div>
                 </div>
 
+                {/* Custom Content Blocks */}
+                {project.blocks && project.blocks.length > 0 && (
+                  <div className="space-y-4">
+                    {(() => {
+                      const processedGroups = new Set<string>();
+                      return project.blocks!.map((block, idx) => {
+                        if (block.groupId && processedGroups.has(block.groupId)) {
+                          return null;
+                        }
+                        if (block.groupId) {
+                          processedGroups.add(block.groupId);
+                          const groupedBlocks = project.blocks!.filter(b => b.groupId === block.groupId);
+                          return (
+                            <div key={block.groupId} className="bg-indigo-500/10 rounded-lg p-4 space-y-4 border border-indigo-500/20">
+                              {groupedBlocks.map((groupedBlock, groupIdx) => (
+                                <div key={groupIdx} className={groupIdx > 0 ? "pt-2 border-t border-indigo-500/10" : ""}>
+                                  <h4 className="text-white font-bold text-[10px] uppercase tracking-widest">{groupedBlock.title}</h4>
+                                  {groupedBlock.content && (
+                                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed mt-2">{groupedBlock.content}</p>
+                                  )}
+                                  {groupedBlock.items && groupedBlock.items.length > 0 && (
+                                    <ul className="text-gray-400 text-xs md:text-sm leading-relaxed space-y-1 pl-4 mt-2">
+                                      {groupedBlock.items.map((item, itemIdx) => (
+                                        <li key={itemIdx} className="list-disc">{item}</li>
+                                      ))}
+                                    </ul>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          );
+                        }
+                        return (
+                          <div key={idx} className="space-y-2">
+                            <h4 className="text-white font-bold text-[10px] uppercase tracking-widest">{block.title}</h4>
+                            {block.content && (
+                              <p className="text-gray-400 text-xs md:text-sm leading-relaxed">{block.content}</p>
+                            )}
+                            {block.items && block.items.length > 0 && (
+                              <ul className="text-gray-400 text-xs md:text-sm leading-relaxed space-y-1 pl-4">
+                                {block.items.map((item, itemIdx) => (
+                                  <li key={itemIdx} className="list-disc">{item}</li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        );
+                      });
+                    })()}
+                  </div>
+                )}
+
                 <div className="pt-8 mt-auto flex items-center justify-between gap-4">
                   <a 
                     href={project.link} 
@@ -226,7 +299,7 @@ const ProjectModal: React.FC<Props> = ({ project, clickedRect, onClose, onNext, 
 
           {/* Next Project Arrow */}
           <button 
-            onClick={(e) => { e.stopPropagation(); onNext(); }}
+            onClick={handleNextProject}
             className="hidden md:flex p-4 rounded-full glass border border-white/10 text-white/50 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-500/10 transition-all transform hover:translate-x-1"
             title="Next Project"
           >
