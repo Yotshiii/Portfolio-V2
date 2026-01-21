@@ -1,36 +1,64 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Code2, Globe, Database, Shield, Network, Server, Box, Terminal, Cpu, Layers, Cloud, Lock, GitBranch } from "lucide-react"
 
 const skillCategories = [
   {
-    title: "Security Tools",
-    skills: ["Metasploit", "Burp Suite", "Wireshark", "Nmap", "Kali Linux", "OWASP ZAP"],
-    color: "primary",
+    title: "Langages de Programmation",
+    skills: ["Python", "Bash"],
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20",
+    icon: Code2,
   },
   {
-    title: "Programming & Scripting",
-    skills: ["Python", "C/C++", "Bash", "PowerShell", "Go", "JavaScript"],
-    color: "secondary",
+    title: "Technologies Web",
+    skills: ["HTML5", "CSS3", "React", "Node.js", "Express"],
+    color: "text-indigo-400",
+    bgColor: "bg-indigo-500/10",
+    borderColor: "border-indigo-500/20",
+    icon: Globe,
   },
   {
-    title: "Security Domains",
-    skills: [
-      "Penetration Testing",
-      "Network Security",
-      "Web Security",
-      "Cryptography",
-      "Malware Analysis",
-      "Cloud Security",
-    ],
-    color: "accent",
+    title: "Bases de Données",
+    skills: ["PostgreSQL", "SQLite", "MySQL"],
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-500/10",
+    borderColor: "border-emerald-500/20",
+    icon: Database,
   },
   {
-    title: "Frameworks & Standards",
-    skills: ["OWASP Top 10", "NIST Framework", "ISO 27001", "MITRE ATT&CK", "CIS Controls"],
-    color: "success",
+    title: "Cybersécurité",
+    skills: ["Audit", "Pentesting", "RootMe", "TryHackMe", "SentinelOne", "Darktrace"],
+    color: "text-purple-400",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/20",
+    icon: Shield,
+  },
+  {
+    title: "Réseaux",
+    skills: ["Cisco", "HP Aruba", "Dell", "Palo Alto", "StormShield", "Watchguard", "pfSense"],
+    color: "text-orange-400",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/20",
+    icon: Network,
+  },
+  {
+    title: "Administration Système",
+    skills: ["Grafana", "PRTG", "Splunk", "Windows Server", "Active Directory", "DNS/DHCP", "IIS", "Linux", "Apache", "Bind", "Postfix"],
+    color: "text-slate-400",
+    bgColor: "bg-slate-500/10",
+    borderColor: "border-slate-500/20",
+    icon: Server,
+  },
+  {
+    title: "Virtualisation",
+    skills: ["VirtualBox", "VMware ESXi", "Docker"],
+    color: "text-cyan-400",
+    bgColor: "bg-cyan-500/10",
+    borderColor: "border-cyan-500/20",
+    icon: Box,
   },
 ]
 
@@ -56,46 +84,59 @@ export function Skills() {
   }, [])
 
   return (
-    <section id="skills" ref={sectionRef} className="px-6 py-20 relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-success/10 rounded-full blur-3xl" />
+    <section id="skills" ref={sectionRef} className="px-6 py-24 relative overflow-hidden bg-background">
+      {/* Background with deep gradients */}
+      <div className="absolute inset-0 bg-[#020617] opacity-50 -z-20"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] -z-10" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <h2
-          className={`text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-accent to-success bg-clip-text text-transparent transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          Skills & Expertise
-        </h2>
+      <div className="max-w-[1600px] mx-auto relative z-10">
+        <div className="mb-16">
+          <h2
+            className={`text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+          >
+            Skills Techniques
+          </h2>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
-            <Card
+            <div
               key={category.title}
-              className={`transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-${category.color}/20 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
+              className={`group relative p-8 rounded-3xl bg-[#0B1221] border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 overflow-hidden ${isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+                }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <CardHeader>
-                <CardTitle className="text-xl flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full bg-${category.color}`} />
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="hover:bg-primary/20 hover:text-primary transition-all duration-150 hover:scale-110"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
+              {/* Watermark Icon */}
+              <category.icon
+                className={`absolute -top-6 -right-6 w-48 h-48 opacity-[0.03] rotate-12 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6 ${category.color}`}
+              />
+
+              {/* Header */}
+              <div className="relative z-10 flex items-center gap-4 mb-8">
+                <div className={`p-3.5 rounded-2xl ${category.bgColor} border border-white/5 ${category.color} shadow-lg shadow-black/20`}>
+                  <category.icon className="w-7 h-7" />
                 </div>
-              </CardContent>
-            </Card>
+                <h3 className="text-2xl font-bold text-white tracking-tight">
+                  {category.title}
+                </h3>
+              </div>
+
+              {/* Skills Tags */}
+              <div className="relative z-10 flex flex-wrap gap-2.5">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#162032] text-slate-300 border border-white/5 hover:border-white/10 hover:bg-[#1C283F] hover:text-white transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>

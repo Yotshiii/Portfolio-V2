@@ -60,9 +60,8 @@ export function Certifications() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-warning to-accent bg-clip-text text-transparent transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+          className={`text-3xl md:text-4xl font-bold mb-12 bg-gradient-to-r from-warning to-accent bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
         >
           Certifications & Achievements
         </h2>
@@ -70,9 +69,8 @@ export function Certifications() {
         <div className="space-y-8">
           <div>
             <h3
-              className={`text-2xl font-semibold mb-6 transition-all duration-1000 delay-200 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-              }`}
+              className={`text-2xl font-semibold mb-6 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                }`}
             >
               Certifications
             </h3>
@@ -80,9 +78,8 @@ export function Certifications() {
               {certifications.map((cert, index) => (
                 <Card
                   key={cert.name}
-                  className={`transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-warning/20 group ${
-                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
+                  className={`transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-warning/20 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                    }`}
                 >
                   <CardHeader>
                     <div className="flex items-start justify-between">
@@ -106,25 +103,22 @@ export function Certifications() {
 
           <div>
             <h3
-              className={`text-2xl font-semibold mb-6 transition-all duration-1000 delay-500 ${
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-              }`}
+              className={`text-2xl font-semibold mb-6 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                }`}
             >
               Achievements
             </h3>
             <Card
-              className={`transition-all duration-200 hover:shadow-xl hover:shadow-success/20 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
+              className={`transition-all duration-200 hover:shadow-xl hover:shadow-success/20 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
             >
               <CardContent className="pt-6">
                 <ul className="space-y-3">
                   {achievements.map((achievement, index) => (
                     <li
                       key={achievement}
-                      className={`flex items-start gap-3 transition-all duration-500 ${
-                        isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-                      }`}
+                      className={`flex items-start gap-3 transition-all duration-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+                        }`}
                       style={{
                         transitionDelay: `${900 + index * 100}ms`,
                       }}

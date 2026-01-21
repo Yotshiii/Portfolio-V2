@@ -70,16 +70,14 @@ export function Contact() {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent transition-all duration-1000 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
+          className={`text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
         >
           Get In Touch
         </h2>
         <p
-          className={`text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
+          className={`text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
         >
           {
             "I'm currently seeking internship opportunities and open to collaborating on security research projects. Let's connect!"
@@ -95,9 +93,8 @@ export function Contact() {
             return (
               <Card
                 key={method.label}
-                className={`hover:scale-110 hover:shadow-xl ${accent.shadow} transition-all duration-500 group ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                }`}
+                className={`hover:scale-110 hover:shadow-xl ${accent.shadow} transition-all duration-500 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                  }`}
               >
                 <CardContent className="pt-6">
                   <a
@@ -117,9 +114,8 @@ export function Contact() {
         <Button
           size="lg"
           asChild
-          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
-          }`}
+          className={`bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 transition-all duration-500 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            }`}
           style={{
             transitionDelay: "800ms",
           }}

@@ -22,10 +22,10 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
+
     const x = e.clientX - rect.left - width / 2;
     const y = e.clientY - rect.top - height / 2;
-    
+
     setMouseX(x);
     setMouseY(y);
   }, [isLoading]);
@@ -55,21 +55,21 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
   }, [mouseX, mouseY]);
 
   const cardBgTransform = useMemo(() => {
-  const base = { backgroundImage: `url(${project.image})` }
-  if (!cardRef.current) {
-    return { ...base, transform: "translateX(0px) translateY(0px)" }
-  }
-  const width = cardRef.current.offsetWidth || 1
-  const height = cardRef.current.offsetHeight || 1
-  const tX = (mouseX / width) * -40
-  const tY = (mouseY / height) * -40
+    const base = { backgroundImage: `url(${project.image})` }
+    if (!cardRef.current) {
+      return { ...base, transform: "translateX(0px) translateY(0px)" }
+    }
+    const width = cardRef.current.offsetWidth || 1
+    const height = cardRef.current.offsetHeight || 1
+    const tX = (mouseX / width) * -40
+    const tY = (mouseY / height) * -40
 
-  return { ...base, transform: `translateX(${tX}px) translateY(${tY}px)` }
-}, [mouseX, mouseY, project.image])
+    return { ...base, transform: `translateX(${tX}px) translateY(${tY}px)` }
+  }, [mouseX, mouseY, project.image])
 
 
   return (
-    <div 
+    <div
       className="card-wrap"
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
@@ -79,15 +79,16 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
     >
       <div className="card" style={cardStyle}>
         <div className="card-bg" style={cardBgTransform}></div>
-        
+
         {/* Terminal Overlay when active - embedded within the card's 3D container */}
         {isLoading && (
-          <TerminalOverlay 
-            projectName={project.title} 
-            onComplete={onTerminalComplete} 
+          <TerminalOverlay
+            projectName={project.title}
+            onComplete={onTerminalComplete}
           />
         )}
 
+        {/* Removed transition-opacity duration-300 as it conflicts with custom CSS */}
         {/* Removed transition-opacity duration-300 as it conflicts with custom CSS */}
         <div className={`card-info ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <h1>{project.title}</h1>

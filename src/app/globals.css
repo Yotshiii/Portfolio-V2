@@ -6,26 +6,27 @@
 
 :root {
   /* Updated to more vibrant, colorful cybersecurity-themed palette */
-  --background: oklch(0.12 0.02 265);
+  /* Significantly lighter blue theme as requested ("moins sombre") */
+  --background: oklch(0.25 0.04 265);
   --foreground: oklch(0.98 0.005 265);
-  --card: oklch(0.18 0.03 265);
+  --card: oklch(0.30 0.05 265);
   --card-foreground: oklch(0.95 0.005 265);
-  --popover: oklch(0.18 0.02 265);
+  --popover: oklch(0.30 0.04 265);
   --popover-foreground: oklch(0.95 0.005 265);
   --primary: oklch(0.65 0.28 280);
   --primary-foreground: oklch(0.98 0.005 265);
   --secondary: oklch(0.62 0.25 195);
   --secondary-foreground: oklch(0.98 0.005 265);
-  --muted: oklch(0.25 0.02 265);
-  --muted-foreground: oklch(0.65 0.01 265);
+  --muted: oklch(0.35 0.03 265);
+  --muted-foreground: oklch(0.70 0.02 265);
   --accent: oklch(0.68 0.26 330);
   --accent-foreground: oklch(0.98 0.005 265);
   --success: oklch(0.65 0.22 150);
   --warning: oklch(0.75 0.22 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0.005 265);
-  --border: oklch(0.25 0.02 265);
-  --input: oklch(0.25 0.02 265);
+  --border: oklch(0.35 0.03 265);
+  --input: oklch(0.35 0.03 265);
   --ring: oklch(0.65 0.25 265);
   --chart-1: oklch(0.65 0.25 265);
   --chart-2: oklch(0.55 0.22 195);
@@ -33,13 +34,13 @@
   --chart-4: oklch(0.6 0.2 285);
   --chart-5: oklch(0.75 0.18 85);
   --radius: 0.5rem;
-  --sidebar: oklch(0.18 0.02 265);
+  --sidebar: oklch(0.30 0.04 265);
   --sidebar-foreground: oklch(0.95 0.005 265);
   --sidebar-primary: oklch(0.65 0.25 265);
   --sidebar-primary-foreground: oklch(0.98 0.005 265);
-  --sidebar-accent: oklch(0.25 0.02 265);
+  --sidebar-accent: oklch(0.35 0.03 265);
   --sidebar-accent-foreground: oklch(0.95 0.005 265);
-  --sidebar-border: oklch(0.25 0.02 265);
+  --sidebar-border: oklch(0.35 0.03 265);
   --sidebar-ring: oklch(0.65 0.25 265);
 }
 
@@ -90,6 +91,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -115,5 +117,34 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: oklch(0.7 0.3 280);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
   }
 }

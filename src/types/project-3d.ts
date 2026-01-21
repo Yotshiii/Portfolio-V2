@@ -14,6 +14,12 @@ export type Project3D = {
   category: string
   /** Primary link used by the modal "Launch" button. */
   link: string
+  /** Optional report 1 download link. */
+  downloadReport1?: string
+  /** Optional report 2 download link. */
+  downloadReport2?: string
+  /** Optional presentation slides download link. */
+  downloadPresentation?: string
 }
 
 export type ContentBlock = {

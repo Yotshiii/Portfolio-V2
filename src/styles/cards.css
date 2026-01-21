@@ -1,12 +1,12 @@
 .card-wrap {
-  margin: 10px;
-  flex: 0 0 240px;
-  width: 240px;
-  height: 400px;
+    margin: 20px;
+    flex: 0 0 340px;
+    width: 340px;
+    height: 420px;
 
-  transform: perspective(800px);
-  transform-style: preserve-3d;
-  cursor: pointer;
+    transform: perspective(800px);
+    transform-style: preserve-3d;
+    cursor: pointer;
 }
 
 
@@ -15,12 +15,15 @@
     opacity: 1;
 }
 
-.card-wrap:hover .card-info p, .card-wrap:hover .card-info h1 {
+.card-wrap:hover .card-info p,
+.card-wrap:hover .card-info h1 {
     opacity: 1;
     transform: translateY(0);
 }
 
-.card-wrap:hover .card-info, .card-wrap:hover .card-info p, .card-wrap:hover .card-info h1 {
+.card-wrap:hover .card-info,
+.card-wrap:hover .card-info p,
+.card-wrap:hover .card-info h1 {
     transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -42,9 +45,9 @@
 
 .card {
     position: relative;
-    flex: 0 0 240px;
+    flex: 0 0 340px;
     width: 100%;
-    height: 400px;
+    height: 420px;
     background-color: #333;
     overflow: hidden;
     border-radius: 10px;
@@ -89,7 +92,7 @@
 
 .card-info p {
     opacity: 0;
-    transform: translateY(25px); 
+    transform: translateY(25px);
     text-shadow: black 0 2px 3px;
     transition: 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-size: 14px;
@@ -119,34 +122,57 @@
 
 /* Shutter Animations */
 @keyframes shutterTopOpen {
-    from { transform: translateY(0); }
-    to { transform: translateY(-100%); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
 }
 
 @keyframes shutterBottomOpen {
-    from { transform: translateY(0); }
-    to { transform: translateY(100%); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
 }
 
 @keyframes shutterTopClose {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes shutterBottomClose {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 .shutter-panel-top {
     animation: shutterTopOpen 0.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
+
 .shutter-panel-bottom {
     animation: shutterBottomOpen 0.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
+
 .shutter-panel-top.closing {
     animation: shutterTopClose 0.4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
+
 .shutter-panel-bottom.closing {
     animation: shutterBottomClose 0.4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
