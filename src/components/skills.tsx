@@ -1,64 +1,86 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Code2, Globe, Database, Shield, Network, Server, Box, Terminal, Cpu, Layers, Cloud, Lock, GitBranch } from "lucide-react"
+import { Code2, Globe, Database, Shield, Network, Server, Box } from "lucide-react"
 
 const skillCategories = [
   {
     title: "Langages de Programmation",
+    subtitle: "Dev & Scripting",
     skills: ["Python", "Bash"],
-    color: "text-blue-400",
-    bgColor: "bg-blue-500/10",
-    borderColor: "border-blue-500/20",
     icon: Code2,
+    colSpan: "md:col-span-2",
+    // Configuration Unique Colors (Hover)
+    hoverBorder: "group-hover:border-pink-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.3)]",
+    iconHoverBg: "group-hover:bg-pink-500/20",
+    iconHoverText: "group-hover:text-pink-400",
   },
   {
     title: "Technologies Web",
+    subtitle: "Architecture & UI",
     skills: ["HTML5", "CSS3", "React", "Node.js", "Express"],
-    color: "text-indigo-400",
-    bgColor: "bg-indigo-500/10",
-    borderColor: "border-indigo-500/20",
     icon: Globe,
+    colSpan: "md:col-span-2",
+    hoverBorder: "group-hover:border-blue-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)]",
+    iconHoverBg: "group-hover:bg-blue-500/20",
+    iconHoverText: "group-hover:text-blue-400",
   },
   {
     title: "Bases de Données",
+    subtitle: "Server & Data",
     skills: ["PostgreSQL", "SQLite", "MySQL"],
-    color: "text-emerald-400",
-    bgColor: "bg-emerald-500/10",
-    borderColor: "border-emerald-500/20",
     icon: Database,
+    colSpan: "md:col-span-1",
+    hoverBorder: "group-hover:border-emerald-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)]",
+    iconHoverBg: "group-hover:bg-emerald-500/20",
+    iconHoverText: "group-hover:text-emerald-400",
   },
   {
     title: "Cybersécurité",
+    subtitle: "Blue & Red Team",
     skills: ["Audit", "Pentesting", "RootMe", "TryHackMe", "SentinelOne", "Darktrace"],
-    color: "text-purple-400",
-    bgColor: "bg-purple-500/10",
-    borderColor: "border-purple-500/20",
     icon: Shield,
+    colSpan: "md:col-span-1",
+    hoverBorder: "group-hover:border-purple-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.3)]",
+    iconHoverBg: "group-hover:bg-purple-500/20",
+    iconHoverText: "group-hover:text-purple-400",
   },
   {
     title: "Réseaux",
+    subtitle: "Infrastructure",
     skills: ["Cisco", "HP Aruba", "Dell", "Palo Alto", "StormShield", "Watchguard", "pfSense"],
-    color: "text-orange-400",
-    bgColor: "bg-orange-500/10",
-    borderColor: "border-orange-500/20",
     icon: Network,
+    colSpan: "md:col-span-2",
+    hoverBorder: "group-hover:border-orange-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.3)]",
+    iconHoverBg: "group-hover:bg-orange-500/20",
+    iconHoverText: "group-hover:text-orange-400",
   },
   {
     title: "Administration Système",
+    subtitle: "Linux & Windows",
     skills: ["Grafana", "PRTG", "Splunk", "Windows Server", "Active Directory", "DNS/DHCP", "IIS", "Linux", "Apache", "Bind", "Postfix"],
-    color: "text-slate-400",
-    bgColor: "bg-slate-500/10",
-    borderColor: "border-slate-500/20",
     icon: Server,
+    colSpan: "md:col-span-2",
+    hoverBorder: "group-hover:border-cyan-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(6,182,212,0.3)]",
+    iconHoverBg: "group-hover:bg-cyan-500/20",
+    iconHoverText: "group-hover:text-cyan-400",
   },
   {
     title: "Virtualisation",
+    subtitle: "Cloud & Containers",
     skills: ["VirtualBox", "VMware ESXi", "Docker"],
-    color: "text-cyan-400",
-    bgColor: "bg-cyan-500/10",
-    borderColor: "border-cyan-500/20",
     icon: Box,
+    colSpan: "md:col-span-2",
+    hoverBorder: "group-hover:border-indigo-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(99,102,241,0.3)]",
+    iconHoverBg: "group-hover:bg-indigo-500/20",
+    iconHoverText: "group-hover:text-indigo-400",
   },
 ]
 
@@ -85,52 +107,78 @@ export function Skills() {
 
   return (
     <section id="skills" ref={sectionRef} className="px-6 py-24 relative overflow-hidden bg-background">
-      {/* Background with deep gradients */}
-      <div className="absolute inset-0 bg-[#020617] opacity-50 -z-20"></div>
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] -z-10" />
+      {/* Background with subtle noise/grid only, no hard colors */}
+      <div className="absolute inset-0 bg-background -z-20"></div>
 
-      <div className="max-w-[1600px] mx-auto relative z-10">
+      <div className="max-w-[1600px] mx-auto relative z-10 text-foreground">
         <div className="mb-16">
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            Skills Techniques
+            Compétences Techniques
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)]">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
-              className={`group relative p-8 rounded-3xl bg-[#0B1221] border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 overflow-hidden ${isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-                }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`
+                group relative p-8 rounded-[2rem] overflow-hidden 
+                bg-card/30 border border-primary/5 backdrop-blur-md
+                hover:bg-card/40 hover:scale-[1.01] 
+                transition-all duration-500
+                ${category.colSpan}
+                ${category.hoverBorder}
+                ${category.hoverShadow}
+                ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+              `}
             >
-              {/* Watermark Icon */}
-              <category.icon
-                className={`absolute -top-6 -right-6 w-48 h-48 opacity-[0.03] rotate-12 transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6 ${category.color}`}
-              />
-
-              {/* Header */}
-              <div className="relative z-10 flex items-center gap-4 mb-8">
-                <div className={`p-3.5 rounded-2xl ${category.bgColor} border border-white/5 ${category.color} shadow-lg shadow-black/20`}>
-                  <category.icon className="w-7 h-7" />
+              {/* Header Section */}
+              <div className="flex items-start gap-5 mb-8">
+                {/* Icon Container with Illumination Animation */}
+                <div className={`
+                  w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 
+                  bg-primary/10 text-primary/80 shadow-inner border border-primary/10 
+                  transition-all duration-500 ease-out
+                  ${category.iconHoverBg} 
+                  ${category.iconHoverText}
+                  group-hover:scale-110 group-hover:rotate-3
+                `}>
+                  <category.icon className="w-7 h-7 transition-all duration-500 group-hover:drop-shadow-[0_0_8px_currentColor]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white tracking-tight">
-                  {category.title}
-                </h3>
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight mb-1 font-sans text-foreground group-hover:text-white transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground font-medium tracking-wide text-sm uppercase group-hover:text-white/60 transition-colors duration-300">
+                    {category.subtitle}
+                  </p>
+                </div>
               </div>
 
-              {/* Skills Tags */}
-              <div className="relative z-10 flex flex-wrap gap-2.5">
+              {/* Watermark Icon - Neutral but lights up on hover */}
+              <category.icon
+                className={`
+                  absolute -bottom-12 -right-12 w-64 h-64 opacity-[0.02] 
+                  rotate-12 group-hover:rotate-0 transition-all duration-700 pointer-events-none text-foreground
+                  group-hover:opacity-[0.1]
+                  ${category.iconHoverText}
+                `}
+              />
+
+              {/* Skills Pills */}
+              <div className="relative z-10 flex flex-wrap gap-3 mt-auto">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#162032] text-slate-300 border border-white/5 hover:border-white/10 hover:bg-[#1C283F] hover:text-white transition-all duration-300 cursor-default"
+                    className={`
+                      px-4 py-2 rounded-xl text-sm font-semibold 
+                      bg-background/50 text-muted-foreground border border-border/50 
+                      transition-all duration-300 backdrop-blur-sm shadow-sm cursor-default
+                      group-hover:border-white/10 group-hover:bg-white/5 group-hover:text-white
+                    `}
                   >
                     {skill}
                   </span>

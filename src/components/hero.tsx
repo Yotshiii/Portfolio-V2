@@ -1,93 +1,93 @@
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { site } from "@/content/site"
 import { MatrixText } from "@/components/ui/matrix-text"
 
 export function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-start md:px-20 px-6 py-20 relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background">
-      {/* Animated background gradients */}
+    <section id="home" className="min-h-screen flex items-center justify-start md:px-24 px-6 py-20 relative overflow-hidden bg-background">
+      {/* Animated background gradients - Subtle and deep */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] animate-float opacity-50 mix-blend-screen" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[100px] animate-float-delayed opacity-50 mix-blend-screen" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] animate-pulse-slow opacity-30" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] opacity-50 mix-blend-screen" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] opacity-50 mix-blend-screen" />
       </div>
 
-      <div className="max-w-5xl w-full relative z-10 text-left">
-        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md shadow-lg shadow-primary/5 hover:bg-primary/15 transition-colors">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <p className="text-sm font-medium text-primary tracking-wide uppercase text-[10px] sm:text-xs">
-              {site.person.availabilityBadge}
-            </p>
-          </div>
+      <div className="max-w-5xl w-full relative z-10 text-left pl-2">
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
 
-          <div className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tight text-balance bg-gradient-to-br from-foreground via-primary to-foreground bg-clip-text text-transparent pb-2">
-              {site.person.name}
+          {/* Main Heading Group */}
+          <div className="space-y-2">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none text-white">
+              Je suis <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Evan</span>
             </h1>
-
-            <div className="h-[4rem] text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground flex items-center justify-center md:justify-start">
-              <MatrixText
-                texts={[
-                  "Apprenti architecte cybersécurité",
-                  "Etudiant ingénieur en informatique spécialisé en cybersécurité"
-                ]}
-                className="text-primary/90"
-              />
+            <div className="block">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-3">
+                Architecte Cybersécurité
+              </h1>
             </div>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mx-auto md:mx-0 text-justify">
+          {/* Subtitle / Role - Keeping MatrixText for cool tech feel but styled as subtitle */}
+          <div className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-400 max-w-2xl mt-4">
+            <MatrixText
+              texts={[
+                "Etudiant Ingénieur en Informatique / Cybersécurité",
+                "Skieur",
+                "Futur Motard"
+              ]}
+              className="text-slate-300"
+            />
+          </div>
+
+          {/* Description */}
+          <p className="text-lg text-slate-400 max-w-2xl leading-relaxed mt-6">
             {site.person.summary}
           </p>
 
-          <div className="flex items-center justify-center md:justify-start gap-4 pt-6">
+          {/* Buttons & Socials */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-10">
+            {/* Primary CTA */}
             <Button
-              variant="outline"
-              size="lg"
               asChild
-              className="h-12 w-12 rounded-xl bg-background/50 border-input/50 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground hover:scale-110 hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 group"
+              className="h-14 px-8 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300 group"
             >
-              <a href={site.links.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5 group-hover:fill-current" />
+              <a href="#projects-3d" className="flex items-center gap-2">
+                Découvrir mon travail
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="h-12 w-12 rounded-xl bg-background/50 border-input/50 backdrop-blur-sm hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] hover:scale-110 hover:shadow-lg hover:shadow-[#0077b5]/25 transition-all duration-300 group"
-            >
-              <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5 group-hover:fill-current" />
+
+            {/* Social Icons - Minimal */}
+            <div className="flex items-center gap-4">
+              <a
+                href={site.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <Github className="w-6 h-6" />
               </a>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              asChild
-              className="h-12 w-12 rounded-xl bg-background/50 border-input/50 backdrop-blur-sm hover:bg-destructive hover:text-white hover:border-destructive hover:scale-110 hover:shadow-lg hover:shadow-destructive/25 transition-all duration-300 group"
-            >
-              <a href={site.links.email} aria-label="Email">
-                <Mail className="h-5 w-5 group-hover:fill-current" />
+              <a
+                href={site.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-slate-400 hover:text-[#0077b5] hover:bg-[#0077b5]/10 rounded-full transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
               </a>
-            </Button>
+              <a
+                href={site.links.email}
+                className="p-3 text-slate-400 hover:text-red-400 hover:bg-red-400/10 rounded-full transition-all duration-300"
+                aria-label="Email"
+              >
+                <Mail className="w-6 h-6" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <a
-        href="#about"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300 group"
-        aria-label="Scroll to about section"
-      >
-        <span className="text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explorer</span>
-        <ArrowDown className="h-6 w-6 animate-bounce" />
-      </a>
     </section>
   )
 }

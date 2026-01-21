@@ -27,8 +27,8 @@ export const site = {
   ],
   links: {
     github: "https://github.com/Yotshiii",
-    linkedin: "https://linkedin.com",
-    email: "mailto:contact@example.com",
-    resume: "/resume.pdf",
+    linkedin: "https://www.linkedin.com/in/evan-joasson-143aa52b9/",
+    email: "evan.joasson@gmail.com",
+    resume: "/CV/EVAN_JOASSON_cybersecurity_intern.pdf",
   },
 } as const
