@@ -18,12 +18,12 @@ export function Hero() {
           {/* Main Heading Group */}
           <div className="space-y-2">
             <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none text-white">
-              Je suis <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">Evan</span>
+              Evan JOASSON
             </h1>
             <div className="block">
-              <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-3">
+              <h2 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-3">
                 Architecte Cybersécurité
-              </h1>
+              </h2>
             </div>
           </div>
 
@@ -31,9 +31,10 @@ export function Hero() {
           <div className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-400 max-w-2xl mt-4">
             <MatrixText
               texts={[
-                "Etudiant Ingénieur en Informatique / Cybersécurité",
-                "Skieur",
-                "Futur Motard"
+                "◉ Etudiant Ingénieur en Informatique / Cybersécurité",
+                "◉ Skieur",
+                "◉ Voyageur",
+                "◉ Futur Motard"
               ]}
               className="text-slate-300"
             />
