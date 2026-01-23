@@ -8,6 +8,7 @@ import ProjectModal from "@/components/cards/ProjectModal"
 import type { Project3D } from "@/types/project-3d"
 import { Filter, Terminal, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion, AnimatePresence } from "framer-motion"
 
 export function Projects3D() {
   const projects = PROJECTS_3D
@@ -247,47 +248,48 @@ export function Projects3D() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       </div>
 
-      <div className="max-w-[1600px] w-full relative z-10">
+      <div className="max-w-7xl w-full relative z-10">
 
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-24 gap-8 pt-12">
-          <div className="relative group">
-            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-              PROJETS
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-8 pt-12">
+          <div className="space-y-6 w-full text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-800 backdrop-blur-md mb-4">
+              <Terminal className="w-4 h-4 text-purple-400" />
+              <span className="text-xs font-medium text-purple-300 tracking-wider uppercase">Portfolio & Réalisations</span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+                Projets
+              </span>
             </h2>
-          </div>
 
-          {/* Command Line Filter */}
-          <div className="flex flex-wrap items-center justify-center gap-2 p-2 rounded-xl bg-card/30 backdrop-blur-md border border-primary/10 shadow-lg">
-            <div className="px-3 py-1 flex items-center gap-2 text-xs font-mono text-muted-foreground border-r border-border/50">
-              <Terminal className="w-3 h-3" />
-              <span>FILTRE:</span>
-            </div>
-            {categories.map((cat) => (
-              <Button
-                key={cat}
-                onClick={() => { setFilter(cat); setVisibleCount(6); }}
-                variant="ghost"
-                size="sm"
-                className={`
-                  relative px-4 py-1.5 h-auto text-xs font-mono tracking-wider transition-all duration-300
-                  ${filter === cat
-                    ? "bg-primary/20 text-primary border border-primary/30 shadow-[0_0_10px_rgba(var(--primary),0.2)]"
-                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                  }
-                `}
-              >
-                {filter === cat && (
-                  <span className="absolute inset-0 border border-primary/50 animate-pulse rounded-md pointer-events-none"></span>
-                )}
-                {cat}
-              </Button>
-            ))}
-            <div className="ml-2 px-2 text-primary/50 hidden sm:block">
-              <Sparkles className="w-3 h-3 animate-spin duration-[3000ms]" />
+            {/* New Filter Style - Left Aligned */}
+            {/* New Filter Style - Left Aligned */}
+            <div className="flex flex-wrap items-center justify-start gap-4">
+              <div className="flex bg-slate-900/50 backdrop-blur-md p-1 rounded-full border border-slate-800/50">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => { setFilter(cat); setVisibleCount(6); }}
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                      ? "text-white"
+                      : "text-slate-400 hover:text-white"
+                      }`}
+                  >
+                    {filter === cat && (
+                      <motion.div
+                        layoutId="activeFilter"
+                        className="absolute inset-0 bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/25"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <span className="relative z-10">{cat}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-        </div >
+        </div>
 
         {/* Dynamic Content Wrapper for Height Animation */}
         < div
@@ -298,28 +300,40 @@ export function Projects3D() {
         >
           <div ref={innerRef}>
             {/* Projects Grid to Flex */}
-            <div className="flex flex-wrap justify-center gap-8 perspective-[1000px]">
-              {filteredProjects.slice(0, visibleCount).map((project, index) => (
-                <div
-                  key={project.id}
-                  className="animate-in fade-in slide-in-from-bottom-10 duration-700 fill-mode-both"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <ProjectCard
-                    project={project}
-                    isLoading={loadingProjectId === project.id}
-                    onTerminalComplete={handleTerminalComplete}
-                    onClick={handleProjectClick}
-                  />
-                </div>
-              ))}
+            <motion.div
+              layout
+              className="flex flex-wrap justify-center gap-8 perspective-[1000px]"
+            >
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.slice(0, visibleCount).map((project) => (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.3 }}
+                    key={project.id}
+                  >
+                    <ProjectCard
+                      project={project}
+                      isLoading={loadingProjectId === project.id}
+                      onTerminalComplete={handleTerminalComplete}
+                      onClick={handleProjectClick}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
 
               {filteredProjects.length === 0 && (
-                <div className="w-full py-20 text-center text-muted-foreground font-mono">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="w-full py-20 text-center text-muted-foreground font-mono"
+                >
                   <p>{`> Aucun projet trouvé pour: "${filter}"`}</p>
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
 
             {/* Pagination Buttons */}
             <div ref={buttonContainerRef} className="mt-16 flex justify-center gap-4 pb-2">

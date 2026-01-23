@@ -110,13 +110,20 @@ export function Skills() {
       {/* Background with subtle noise/grid only, no hard colors */}
       <div className="absolute inset-0 bg-background -z-20"></div>
 
-      <div className="max-w-[1600px] mx-auto relative z-10 text-foreground">
-        <div className="mb-16">
+      <div className="max-w-7xl mx-auto relative z-10 text-foreground">
+        <div className="mb-16 space-y-6">
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-800 backdrop-blur-md mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <Code2 className="w-4 h-4 text-purple-400" />
+            <span className="text-xs font-medium text-purple-300 tracking-wider uppercase">Compétences & Atouts</span>
+          </div>
+
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            Compétences Techniques
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+              Compétences Techniques
+            </span>
           </h2>
         </div>
 

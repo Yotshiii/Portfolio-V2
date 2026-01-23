@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { User, ShieldCheck, Terminal, Briefcase, Users } from "lucide-react"
+import { User, ShieldCheck, Terminal, Briefcase, Users, Binoculars, Route } from "lucide-react"
 
 export function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -31,13 +31,22 @@ export function About() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] -z-10" />
 
-      <div className="max-w-[1600px] mx-auto relative z-10">
-        <h2
-          className={`text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-        >
-          À propos
-        </h2>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-12 space-y-6">
+          <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/50 border border-slate-800 backdrop-blur-md mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+            <User className="w-4 h-4 text-purple-400" />
+            <span className="text-xs font-medium text-purple-300 tracking-wider uppercase">Qui suis-je ?</span>
+          </div>
+
+          <h2
+            className={`text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+              À Propos
+            </span>
+          </h2>
+        </div>
 
         <div className={`transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <Card className="overflow-hidden border-primary/10 bg-card/30 backdrop-blur-md shadow-2xl">
@@ -82,11 +91,11 @@ export function About() {
                     <div className="relative z-10 grid place-items-center w-full h-full border-2 border-dashed border-primary/30 rounded-full animate-[spin_20s_linear_infinite]">
                       {/* Top */}
                       <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-background p-2.5 rounded-full border border-primary/20 shadow-lg animate-[spin_20s_linear_infinite_reverse]">
-                        <ShieldCheck className="w-6 h-6 text-primary" />
+                        <Route className="w-6 h-6 text-primary" />
                       </div>
                       {/* Bottom */}
                       <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-background p-2.5 rounded-full border border-secondary/20 shadow-lg animate-[spin_20s_linear_infinite_reverse]">
-                        <Terminal className="w-6 h-6 text-secondary" />
+                        <Binoculars className="w-6 h-6 text-secondary" />
                       </div>
                       {/* Left */}
                       <div className="absolute top-1/2 -left-5 -translate-y-1/2 bg-background p-2.5 rounded-full border border-blue-500/20 shadow-lg animate-[spin_20s_linear_infinite_reverse]">

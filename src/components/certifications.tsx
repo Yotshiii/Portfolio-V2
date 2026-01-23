@@ -183,7 +183,7 @@ export function Certifications() {
           </div>
 
           <h2
-            className={`text-5xl md:text-7xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
@@ -201,12 +201,19 @@ export function Certifications() {
               <button
                 key={issuer}
                 onClick={() => setSelectedIssuer(issuer)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedIssuer === issuer
-                    ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/25"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedIssuer === issuer
+                  ? "text-white"
+                  : "text-slate-400 hover:text-white hover:bg-white/5"
                   }`}
               >
-                {issuer}
+                {selectedIssuer === issuer && (
+                  <motion.div
+                    layoutId="activeIssuerFilter"
+                    className="absolute inset-0 bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/25"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{issuer}</span>
               </button>
             ))}
           </div>
@@ -217,12 +224,19 @@ export function Certifications() {
               <button
                 key={status}
                 onClick={() => setSelectedStatus(status)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedStatus === status
-                    ? "bg-slate-700 text-white shadow-lg"
-                    : "text-slate-400 hover:text-white hover:bg-white/5"
+                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${selectedStatus === status
+                  ? "text-white"
+                  : "text-slate-400 hover:text-white hover:bg-white/5"
                   }`}
               >
-                {status}
+                {selectedStatus === status && (
+                  <motion.div
+                    layoutId="activeStatusFilter"
+                    className="absolute inset-0 bg-slate-700 rounded-full shadow-lg"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{status}</span>
               </button>
             ))}
           </div>

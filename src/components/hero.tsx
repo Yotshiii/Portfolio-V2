@@ -17,11 +17,11 @@ export function Hero() {
 
           {/* Main Heading Group */}
           <div className="space-y-2">
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none text-white">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none text-white">
               Evan JOASSON
             </h1>
             <div className="block">
-              <h2 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-3">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent pb-3">
                 Architecte Cybersécurité
               </h2>
             </div>

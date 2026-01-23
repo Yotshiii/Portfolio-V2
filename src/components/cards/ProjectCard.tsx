@@ -99,6 +99,11 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
                 {tag}
               </span>
             ))}
+            {project.tags.length > 3 && (
+              <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded border border-white/10 font-bold uppercase tracking-widest">
+                +{project.tags.length - 3}
+              </span>
+            )}
           </div>
         </div>
       </div>
