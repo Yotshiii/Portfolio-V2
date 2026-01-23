@@ -113,66 +113,74 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: oklch(0.15 0.02 265);
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: oklch(0.65 0.28 280);
+    background: oklch(0.8 0.005 240);
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.7 0.3 280);
+    background: oklch(0.6 0.005 240);
   }
 }
 
 @layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .text-balance {
+    text-wrap: balance;
   }
 
-  .animate-float-delayed {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: 3s;
-  }
-
-  .animate-pulse-slow {
-    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
-
-    100% {
-      transform: translateY(0px);
-    }
-  }
+  /* Removed unused animations for new minimal theme */
 }
+
 /* Hero Simulation Animations */
 @keyframes shimmer-bar {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(300%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(300%);
+  }
 }
 
 @keyframes pulse-height {
-  0%, 100% { transform: scaleY(1); opacity: 1; }
-  50% { transform: scaleY(0.7); opacity: 0.8; }
+
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scaleY(0.7);
+    opacity: 0.8;
+  }
 }
 
 @keyframes scale-in {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; transform: translateY(5px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-shimmer-bar {
@@ -190,4 +198,3 @@
 .animate-fade-in {
   animation: fade-in 0.5s ease-out forwards;
 }
-

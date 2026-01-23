@@ -2,30 +2,17 @@
 
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Shield } from "lucide-react"
 import { site } from "@/content/site"
+import { Button } from "@/components/ui/button"
 
 const navItems = site.nav
 
 export function Navigation() {
-  const [activeSection, setActiveSection] = useState("home")
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-
-      // Determine active section based on scroll position
-      const sections = navItems.map((item) => item.href.slice(1))
-      const scrollPosition = window.scrollY + 100
-
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section)
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(section)
-          break
-        }
-      }
+      setIsScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -35,51 +22,43 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300",
-        isScrolled ? "top-4" : "top-6",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 px-6 md:px-12",
+        isScrolled ? "bg-background/80 backdrop-blur-md py-4 shadow-sm" : "bg-transparent"
       )}
     >
-      <div
-        className={cn(
-          "flex items-center gap-1 px-3 py-2 rounded-full transition-all duration-300",
-          "backdrop-blur-xl bg-card/40 border border-border/50",
-          "shadow-lg shadow-primary/5",
-          isScrolled && "bg-card/60 shadow-xl shadow-primary/10",
-        )}
-        style={{
-          background: isScrolled
-            ? "linear-gradient(135deg, rgba(66, 51, 102, 0.6), rgba(38, 89, 115, 0.6))"
-            : "linear-gradient(135deg, rgba(66, 51, 102, 0.4), rgba(38, 89, 115, 0.4))",
-        }}
-      >
-        <div className="flex items-center gap-2 px-3 py-1 border-r border-border/50">
-          <Shield className="h-4 w-4 text-primary" />
+      <div className="max-w-[1920px] mx-auto flex items-center justify-between">
+        {/* Logo / Brand */}
+        <a href="#home" className="text-xl font-bold tracking-tight z-50">
+          <span className="font-extrabold">EVAN</span>
+          <span className="text-muted-foreground font-normal">JOASSON</span>
+        </a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          <div className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          <Button asChild className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
+            <a href="#contact">Let's Talk</a>
+          </Button>
         </div>
 
-        {navItems.map((item) => {
-          const isActive = activeSection === item.href.slice(1)
-          return (
-            <a
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                "hover:text-primary",
-                isActive ? "text-foreground" : "text-muted-foreground",
-              )}
-            >
-              {isActive && (
-                <span
-                  className="absolute inset-0 rounded-full bg-primary/20 animate-in fade-in zoom-in-95 duration-300"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(170, 99, 237, 0.2), rgba(99, 179, 237, 0.2))",
-                  }}
-                />
-              )}
-              <span className="relative z-10">{item.name}</span>
-            </a>
-          )
-        })}
+        {/* Mobile Menu Toggle (Simplified placeholder for now, ensuring functionality) */}
+        {/* Ideally would be a sheet/drawer, but keeping simple for this iteration */}
+        <div className="md:hidden">
+          <Button size="sm" variant="ghost" asChild>
+            <a href="#contact">Contact</a>
+          </Button>
+        </div>
       </div>
     </nav>
   )

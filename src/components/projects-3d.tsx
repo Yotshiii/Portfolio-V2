@@ -257,8 +257,8 @@ export function Projects3D() {
               <span className="text-xs font-medium text-purple-300 tracking-wider uppercase">Portfolio & Réalisations</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-8">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white mb-8">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-cyan-400 drop-shadow-lg">
                 Projets
               </span>
             </h2>

@@ -183,10 +183,10 @@ export function Certifications() {
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-6xl font-bold uppercase tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-cyan-400 drop-shadow-lg">
               Certifications
             </span>
           </h2>

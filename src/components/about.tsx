@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { User, ShieldCheck, Terminal, Briefcase, Users, Binoculars, Route } from "lucide-react"
+import { User, ShieldCheck, Terminal, Briefcase, Users, Binoculars, Route, ScanEye } from "lucide-react"
 
 export function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -39,10 +39,10 @@ export function About() {
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-6xl font-bold uppercase tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-cyan-400 drop-shadow-lg">
               À Propos
             </span>
           </h2>
@@ -95,7 +95,7 @@ export function About() {
                       </div>
                       {/* Bottom */}
                       <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-background p-2.5 rounded-full border border-secondary/20 shadow-lg animate-[spin_20s_linear_infinite_reverse]">
-                        <Binoculars className="w-6 h-6 text-secondary" />
+                        <ScanEye className="w-6 h-6 text-green-500" />
                       </div>
                       {/* Left */}
                       <div className="absolute top-1/2 -left-5 -translate-y-1/2 bg-background p-2.5 rounded-full border border-blue-500/20 shadow-lg animate-[spin_20s_linear_infinite_reverse]">
@@ -130,7 +130,7 @@ export function About() {
 
                   <div className="space-y-4">
                     <h3 className="text-2xl font-semibold flex items-center gap-2">
-                      <span className="w-1 h-8 bg-secondary rounded-full" />
+                      <span className="w-1 h-8 bg-green-500 rounded-full" />
                       Ma Vision
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify">

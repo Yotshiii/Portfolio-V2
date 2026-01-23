@@ -89,7 +89,6 @@ const ProjectCard: React.FC<Props> = ({ project, isLoading, onTerminalComplete, 
         )}
 
         {/* Removed transition-opacity duration-300 as it conflicts with custom CSS */}
-        {/* Removed transition-opacity duration-300 as it conflicts with custom CSS */}
         <div className={`card-info ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <h1>{project.title}</h1>
           <p>{project.shortDescription}</p>
