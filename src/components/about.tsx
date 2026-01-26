@@ -26,10 +26,33 @@ export function About() {
   }, [])
 
   return (
-    <section id="about" ref={sectionRef} className="px-6 py-24 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] -z-10" />
+    <section id="about" ref={sectionRef} className="px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#0d1f3c] via-[#122a4d] to-[#0d1f3c]">
+      {/* Glowing Orbs - More visible */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/25 rounded-full blur-[100px] animate-orb-float" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[80px] animate-orb-pulse" />
+
+      {/* Animated Wave - Top Right */}
+      <svg
+        className="absolute top-0 right-0 w-[600px] h-[300px] opacity-20 pointer-events-none"
+        viewBox="0 0 600 300"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,150 Q150,100 300,150 T600,150"
+          fill="none"
+          stroke="rgba(59, 130, 246, 0.4)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M0,180 Q150,130 300,180 T600,180"
+          fill="none"
+          stroke="rgba(99, 102, 241, 0.3)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: '1s' }}
+        />
+      </svg>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-12 space-y-6">

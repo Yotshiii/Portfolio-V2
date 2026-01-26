@@ -106,9 +106,33 @@ export function Skills() {
   }, [])
 
   return (
-    <section id="skills" ref={sectionRef} className="px-6 py-24 relative overflow-hidden bg-background">
-      {/* Background with subtle noise/grid only, no hard colors */}
-      <div className="absolute inset-0 bg-background -z-20"></div>
+    <section id="skills" ref={sectionRef} className="px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#0d1f3c] via-[#122a4d] to-[#0d1f3c]">
+      {/* Glowing Orbs - More visible */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-purple-500/25 rounded-full blur-[80px] animate-orb-float" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[100px] animate-orb-pulse" />
+
+      {/* Animated Wave - Bottom Left going opposite direction */}
+      <svg
+        className="absolute bottom-0 left-0 w-[700px] h-[350px] opacity-15 pointer-events-none rotate-180"
+        viewBox="0 0 700 350"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,175 Q175,125 350,175 T700,175"
+          fill="none"
+          stroke="rgba(139, 92, 246, 0.4)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M0,205 Q175,155 350,205 T700,205"
+          fill="none"
+          stroke="rgba(59, 130, 246, 0.3)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: '1.5s' }}
+        />
+      </svg>
 
       <div className="max-w-7xl mx-auto relative z-10 text-foreground">
         <div className="mb-16 space-y-6">

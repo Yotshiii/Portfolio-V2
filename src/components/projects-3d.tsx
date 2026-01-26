@@ -233,19 +233,45 @@ export function Projects3D() {
     <section
       id="projects-3d"
       ref={sectionRef}
-      className="px-6 py-24 relative overflow-hidden bg-background min-h-screen flex flex-col items-center"
+      className="px-6 py-24 relative overflow-hidden bg-gradient-to-br from-[#0d1f3c] via-[#122a4d] to-[#0d1f3c] min-h-screen flex flex-col items-center"
     >
+      {/* Glowing Orbs - More visible */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/25 rounded-full blur-[100px] animate-orb-float" />
+      <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[80px] animate-orb-pulse" style={{ animationDelay: '3s' }} />
+
+      {/* Animated Wave - Right side vertical */}
+      <svg
+        className="absolute top-1/4 right-0 w-[400px] h-[600px] opacity-15 pointer-events-none"
+        viewBox="0 0 400 600"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M200,0 Q150,150 200,300 T200,600"
+          fill="none"
+          stroke="rgba(6, 182, 212, 0.4)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M230,0 Q180,150 230,300 T230,600"
+          fill="none"
+          stroke="rgba(59, 130, 246, 0.3)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: '2s' }}
+        />
+      </svg>
+
       {/* Dynamic Grid Background with Spotlight */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(var(--primary), 0.05), transparent 40%),
-            linear-gradient(rgba(var(--background), 0.9), rgba(var(--background), 0.9))
+            radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.08), transparent 40%)
           `
         }}
       >
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       </div>
 
       <div className="max-w-7xl w-full relative z-10">

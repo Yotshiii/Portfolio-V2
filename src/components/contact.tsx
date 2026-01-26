@@ -64,9 +64,33 @@ export function Contact() {
   }, [])
 
   return (
-    <section id="contact" ref={sectionRef} className="px-6 py-20 border-t border-border/50 relative overflow-hidden">
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+    <section id="contact" ref={sectionRef} className="px-6 py-20 border-t border-blue-800/30 relative overflow-hidden bg-gradient-to-br from-[#0d1f3c] via-[#122a4d] to-[#0d1f3c]">
+      {/* Glowing Orbs - More visible */}
+      <div className="absolute top-0 left-1/3 w-[450px] h-[450px] bg-blue-500/30 rounded-full blur-[80px] animate-orb-float" />
+      <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-indigo-500/25 rounded-full blur-[80px] animate-orb-pulse" style={{ animationDelay: '2s' }} />
+
+      {/* Animated Wave - Bottom */}
+      <svg
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] opacity-15 pointer-events-none"
+        viewBox="0 0 800 200"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,100 Q200,50 400,100 T800,100"
+          fill="none"
+          stroke="rgba(99, 102, 241, 0.4)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M0,130 Q200,80 400,130 T800,130"
+          fill="none"
+          stroke="rgba(59, 130, 246, 0.3)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: '1.5s' }}
+        />
+      </svg>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h2

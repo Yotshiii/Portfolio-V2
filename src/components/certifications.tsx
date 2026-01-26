@@ -165,15 +165,36 @@ export function Certifications() {
   }, [])
 
   return (
-    <section id="certifications" ref={sectionRef} className="py-32 relative overflow-hidden bg-black/40">
-      {/* Dynamic Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] mask-image-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+    <section id="certifications" ref={sectionRef} className="py-32 relative overflow-hidden bg-gradient-to-br from-[#0d1f3c] via-[#122a4d] to-[#0d1f3c]">
+      {/* More visible grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(100,150,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(100,150,255,0.08)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-      {/* Ambient Glows - Mixed colors to represent diversity */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }} />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
-      </div>
+      {/* Glowing Orbs - More visible */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-purple-500/30 rounded-full blur-[80px] animate-orb-float" style={{ animationDuration: '4s' }} />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-blue-500/25 rounded-full blur-[100px] animate-orb-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+
+      {/* Animated Wave - Left side diagonal */}
+      <svg
+        className="absolute top-0 left-0 w-[500px] h-[400px] opacity-20 pointer-events-none -rotate-12"
+        viewBox="0 0 500 400"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,200 Q125,150 250,200 T500,200"
+          fill="none"
+          stroke="rgba(168, 85, 247, 0.4)"
+          strokeWidth="1"
+          className="animate-wave"
+        />
+        <path
+          d="M0,230 Q125,180 250,230 T500,230"
+          fill="none"
+          stroke="rgba(59, 130, 246, 0.3)"
+          strokeWidth="1"
+          className="animate-wave"
+          style={{ animationDelay: '1s' }}
+        />
+      </svg>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12 space-y-6">

@@ -29,8 +29,8 @@ export function Navigation() {
       <div className="max-w-[1920px] mx-auto flex items-center justify-between">
         {/* Logo / Brand */}
         <a href="#home" className="text-xl font-bold tracking-tight z-50">
-          <span className="font-extrabold">EVAN</span>
-          <span className="text-muted-foreground font-normal">JOASSON</span>
+          <span className="font-extrabold">Architecte</span>
+          <span className="text-muted-foreground font-normal">Cyber</span>
         </a>
 
         {/* Desktop Navigation */}
