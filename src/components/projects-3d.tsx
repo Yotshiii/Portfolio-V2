@@ -283,10 +283,8 @@ export function Projects3D() {
               <span className="text-xs font-medium text-purple-300 tracking-wider uppercase">Portfolio & Réalisations</span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white mb-8">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-cyan-400 drop-shadow-lg">
-                Projets
-              </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-8">
+              Projets
             </h2>
 
             {/* New Filter Style - Left Aligned */}

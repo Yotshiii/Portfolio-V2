@@ -22,6 +22,7 @@ export const site = {
     { name: "À propos", href: "#about" },
     { name: "Compétences", href: "#skills" },
     { name: "Projets", href: "#projects-3d" },
+    { name: "Parcours", href: "#experience" },
     { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ],

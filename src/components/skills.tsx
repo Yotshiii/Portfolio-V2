@@ -5,45 +5,11 @@ import { Code2, Globe, Database, Shield, Network, Server, Box } from "lucide-rea
 
 const skillCategories = [
   {
-    title: "Langages de Programmation",
-    subtitle: "Dev & Scripting",
-    skills: ["Python", "Bash"],
-    icon: Code2,
-    colSpan: "md:col-span-2",
-    // Configuration Unique Colors (Hover)
-    hoverBorder: "group-hover:border-pink-500/50",
-    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.3)]",
-    iconHoverBg: "group-hover:bg-pink-500/20",
-    iconHoverText: "group-hover:text-pink-400",
-  },
-  {
-    title: "Technologies Web",
-    subtitle: "Architecture & UI",
-    skills: ["HTML5", "CSS3", "React", "Node.js", "Express"],
-    icon: Globe,
-    colSpan: "md:col-span-2",
-    hoverBorder: "group-hover:border-blue-500/50",
-    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)]",
-    iconHoverBg: "group-hover:bg-blue-500/20",
-    iconHoverText: "group-hover:text-blue-400",
-  },
-  {
-    title: "Bases de Données",
-    subtitle: "Server & Data",
-    skills: ["PostgreSQL", "SQLite", "MySQL"],
-    icon: Database,
-    colSpan: "md:col-span-1",
-    hoverBorder: "group-hover:border-emerald-500/50",
-    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)]",
-    iconHoverBg: "group-hover:bg-emerald-500/20",
-    iconHoverText: "group-hover:text-emerald-400",
-  },
-  {
     title: "Cybersécurité",
     subtitle: "Blue & Red Team",
     skills: ["Audit", "Pentesting", "RootMe", "TryHackMe", "SentinelOne", "Darktrace"],
     icon: Shield,
-    colSpan: "md:col-span-1",
+    colSpan: "md:col-span-2",
     hoverBorder: "group-hover:border-purple-500/50",
     hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.3)]",
     iconHoverBg: "group-hover:bg-purple-500/20",
@@ -72,15 +38,48 @@ const skillCategories = [
     iconHoverText: "group-hover:text-cyan-400",
   },
   {
+    title: "Langages",
+    subtitle: "Dev & Scripting",
+    skills: ["Python", "Bash"],
+    icon: Code2,
+    colSpan: "md:col-span-1",
+    hoverBorder: "group-hover:border-pink-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(236,72,153,0.3)]",
+    iconHoverBg: "group-hover:bg-pink-500/20",
+    iconHoverText: "group-hover:text-pink-400",
+  },
+  {
+    title: "Web",
+    subtitle: "Architecture & UI",
+    skills: ["HTML5", "CSS3", "React", "Node.js"],
+    icon: Globe,
+    colSpan: "md:col-span-1",
+    hoverBorder: "group-hover:border-blue-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(59,130,246,0.3)]",
+    iconHoverBg: "group-hover:bg-blue-500/20",
+    iconHoverText: "group-hover:text-blue-400",
+  },
+  {
     title: "Virtualisation",
     subtitle: "Cloud & Containers",
-    skills: ["VirtualBox", "VMware ESXi", "Docker"],
+    skills: ["VirtualBox", "VMware", "Docker"],
     icon: Box,
     colSpan: "md:col-span-2",
     hoverBorder: "group-hover:border-indigo-500/50",
     hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(99,102,241,0.3)]",
     iconHoverBg: "group-hover:bg-indigo-500/20",
     iconHoverText: "group-hover:text-indigo-400",
+  },
+  {
+    title: "Bases de Données",
+    subtitle: "Server & Data",
+    skills: ["PostgreSQL", "SQLite", "MySQL"],
+    icon: Database,
+    colSpan: "md:col-span-2",
+    hoverBorder: "group-hover:border-emerald-500/50",
+    hoverShadow: "group-hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.3)]",
+    iconHoverBg: "group-hover:bg-emerald-500/20",
+    iconHoverText: "group-hover:text-emerald-400",
   },
 ]
 
@@ -142,12 +141,10 @@ export function Skills() {
           </div>
 
           <h2
-            className={`text-4xl md:text-6xl font-bold uppercase tracking-tight text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            className={`text-4xl md:text-5xl font-bold text-white tracking-tight transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-cyan-400 drop-shadow-lg">
-              Compétences Techniques
-            </span>
+            Compétences Techniques
           </h2>
         </div>
 
