@@ -1,4 +1,5 @@
 import type { Project3D } from "@/types/project-3d"
+import { withBase } from "@/lib/basePath"
 
 export const PROJECTS_3D: Project3D[] = [
   {
@@ -7,17 +8,17 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Un réseau social léger et réactif inspiré de Twitter/X",
     description:
       "Ce projet concernait le développement d'un réseau social léger et réactif, inspiré de Twitter/X, conçu pour fonctionner efficacement dans des environnements à faibles ressources et avec une connectivité limitée.",
-    image: "/projects/Breezy/Breezy_connexion.png",
+    image: withBase("/projects/Breezy/Breezy_connexion.png"),
     images: [
-      "/projects/Breezy/Breezy_connexion.png",
-      "/projects/Breezy/Breezy_inscription.png",
-      "/projects/Breezy/fil_actu.png",
-      "/projects/Breezy/profil.png",
+      withBase("/projects/Breezy/Breezy_connexion.png"),
+      withBase("/projects/Breezy/Breezy_inscription.png"),
+      withBase("/projects/Breezy/fil_actu.png"),
+      withBase("/projects/Breezy/profil.png"),
     ],
     tags: ["Node.js", "Next.js", "Express", "MongoDB", "React", "Tailwind CSS", "Docker", "Traefik", "JWT", "Microservices"],
     category: "Web",
     link: "https://github.com",
-    downloadReport1: "/projects/Breezy/breezy-rapport-soutenance",
+    downloadReport1: withBase("/projects/Breezy/breezy-rapport-soutenance"),
     blocks: [
       {
         title: "Gestion des publications",
@@ -88,15 +89,15 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Architecture Data Lakehouse pour l'analyse de données hospitalières",
     description:
       "Mise en place d'une plateforme Big Data complète pour un groupe hospitalier (CHU) afin de créer un data warehouse. L'objectif était d'intégrer, stocker, analyser et visualiser des données hétérogènes (dossiers médicaux, flux patients) pour en extraire des informations stratégiques.",
-    image: "/projects/BigDataHealth/BigData.png", // Placeholder until images are moved
+    image: withBase("/projects/BigDataHealth/BigData.png"),
     images: [
-      "/projects/BigDataHealth/BigData.png",
+      withBase("/projects/BigDataHealth/BigData.png"),
     ],
     tags: ["Spark", "Airflow", "Superset", "Python", "Docker", "Hadoop"],
     category: "Ingénierie Data",
     link: "#",
-    downloadReport1: "/projects/BigDataHealth/Bigdata_Livrable1.pdf",
-    downloadReport2: "/projects/BigDataHealth/Bigdata_Livrable2.pdf",
+    downloadReport1: withBase("/projects/BigDataHealth/Bigdata_Livrable1.pdf"),
+    downloadReport2: withBase("/projects/BigDataHealth/Bigdata_Livrable2.pdf"),
     blocks: [
       {
         title: "Fonctionnalités Clés",
@@ -128,15 +129,15 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Logiciel de sauvegarde sécurisé et performant pour professionnels",
     description:
       "Projet académique réalisé dans le cadre d'un éditeur logiciel fictif (ProSoft), visant à développer un logiciel de sauvegarde performant et évolutif destiné à des utilisateurs professionnels. L'objectif était de créer une solution fiable et simple d'utilisation, avec de fortes attentes en termes de performance et de maintenabilité du code.",
-    image: "/projects/EasySave/easysave.jpg", // Placeholder
+    image: withBase("/projects/EasySave/easysave.jpg"),
     images: [
-      "/projects/EasySave/easysave.jpg",
+      withBase("/projects/EasySave/easysave.jpg"),
     ],
     tags: ["C#", ".NET 8.0", "WPF", "MVC", "Scrum", "Git"],
     category: "Génie Logiciel",
     link: "https://github.com",
-    downloadReport1: "/projects/EasySave/easysave-rapport.pdf",
-    downloadPresentation: "/projects/EasySave/easysave-diapo.pdf",
+    downloadReport1: withBase("/projects/EasySave/easysave-rapport.pdf"),
+    downloadPresentation: withBase("/projects/EasySave/easysave-diapo.pdf"),
     blocks: [
       {
         title: "Fonctionnalités Clés",
@@ -168,14 +169,14 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Optimisation de tournées de livraison (TSP variant) pour réduire l'empreinte carbone",
     description:
       "Projet universitaire en collaboration avec l'ADEME pour étudier l'optimisation des tournées de livraison, une variante complexe du problème du voyageur de commerce (TSP). Réponse à un appel à projets visant à réduire la consommation d'énergie et les émissions de CO2 liées au transport de marchandises.",
-    image: "/projects/RouteOptimization/Optimization.png", // Placeholder
+    image: withBase("/projects/RouteOptimization/Optimization.png"),
     images: [
-      "/projects/RouteOptimization/Optimization.png",
+      withBase("/projects/RouteOptimization/Optimization.png"),
     ],
     tags: ["Python", "Algorithmes Génétiques", "Recuit Simulé", "Colonie de Fourmis", "Optimisation", "Recherche Opérationnelle"],
     category: "Algorithmique",
     link: "https://github.com",
-    downloadPresentation: "/projects/RouteOptimization/route-optimization-diapo.pdf",
+    downloadPresentation: withBase("/projects/RouteOptimization/route-optimization-diapo.pdf"),
     blocks: [
       {
         title: "Fonctionnalités Clés",
@@ -213,8 +214,8 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Déploiement et administration d'une infrastructure cloud privée complète",
     description:
       "Création d'une infrastructure cloud complète pour une petite structure utilisant OpenStack. Le but était de démontrer la capacité de concevoir, déployer et gérer un environnement virtualisé professionnel. L'infrastructure comprenait la configuration de serveurs virtuels (CentOS 8, Windows 10), d'un réseau privé sécurisé, et le déploiement de services essentiels.",
-    image: "/projects/CloudInfrastructure/Openstack.png", // Placeholder
-    images: ["/projects/CloudInfrastructure/Openstack.png"],
+    image: withBase("/projects/CloudInfrastructure/Openstack.png"),
+    images: [withBase("/projects/CloudInfrastructure/Openstack.png")],
     tags: ["OpenStack", "CentOS 8", "Windows 10", "Apache", "MySQL", "Nextcloud", "Prometheus", "Grafana"],
     category: "Cloud & DevOps",
     link: "#",
@@ -248,8 +249,8 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Conception et déploiement d'une infrastructure d'entreprise sécurisée (ANSSI)",
     description:
       "Projet ambitieux consistant à concevoir et déployer une infrastructure d'entreprise complète, en respectant scrupuleusement les recommandations de l'ANSSI. L'architecture incluait une DMZ pour isoler les services publics, un système d'information interne sécurisé et de multiples couches de protection avec des pare-feu redondants.",
-    image: "/projects/ISSecurity/ISSecurity.png", // Placeholder
-    images: ["/projects/ISSecurity/ISSecurity.png"],
+    image: withBase("/projects/ISSecurity/ISSecurity.png"),
+    images: [withBase("/projects/ISSecurity/ISSecurity.png")],
     tags: ["ESXi 6.7", "Cisco", "WatchGuard", "StormShield", "Veeam", "PRTG", "Splunk", "Active Directory"],
     category: "Cybersécurité",
     link: "#",
@@ -284,8 +285,8 @@ export const PROJECTS_3D: Project3D[] = [
     shortDescription: "Outil d'analyse et de visualisation de données pour fichiers CSV",
     description:
       "Ce projet consistait à développer un script Python sophistiqué pour analyser et traiter des données issues de fichiers de calendrier au format CSV. L'objectif était de créer un outil capable d'extraire, filtrer et présenter des informations spécifiques sur les événements et réunions. Le principal défi était de transformer des données brutes en informations exploitables, présentées sous forme de tableaux Markdown et de graphiques interactifs.",
-    image: "/projects/DataProcessing/DataProcessing.png", // Placeholder
-    images: ["/projects/DataProcessing/DataProcessing.png"],
+    image: withBase("/projects/DataProcessing/DataProcessing.png"),
+    images: [withBase("/projects/DataProcessing/DataProcessing.png")],
     tags: ["Python", "Pandas", "Matplotlib", "CSV", "Markdown", "HTML/CSS", "Jupyter", "Numpy"],
     category: "Data Science",
     link: "https://github.com",

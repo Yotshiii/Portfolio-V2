@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Github, Linkedin, FileText, ChevronDown } from "lucide-react"
 import { site } from "@/content/site"
 import { Particles } from "@/components/ui/particles"
+import { withBase } from "@/lib/basePath"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -48,8 +49,8 @@ const contactMethods: Array<{
       accent: "success",
       isDropdown: true,
       dropdownItems: [
-        { label: "Français", href: "/CV/CV_FR.pdf" },
-        { label: "English", href: "/CV/EVAN_JOASSON_cybersecurity_intern.pdf" },
+        { label: "Français", href: withBase("/CV/CV_FR.pdf") },
+        { label: "English", href: withBase("/CV/EVAN_JOASSON_cybersecurity_intern.pdf") },
       ]
     },
   ]

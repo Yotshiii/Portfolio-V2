@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 import { Badge } from "@/components/ui/badge"
 import { Award, ShieldCheck, Lock, Sparkles, Filter } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { withBase } from "@/lib/basePath"
 
 type ThemeColor = "purple" | "orange" | "green"
 
@@ -25,7 +26,7 @@ const certifications: Certification[] = [
     date: "Nov. 2025",
     status: "Earned",
     icon: Award,
-    logo: "/logos/SentinelOne_logo.png",
+    logo: withBase("/logos/SentinelOne_logo.png"),
     theme: "purple",
   },
   {
@@ -34,7 +35,7 @@ const certifications: Certification[] = [
     date: "March 2025",
     status: "Earned",
     icon: Award,
-    logo: "/logos/SentinelOne_logo.png",
+    logo: withBase("/logos/SentinelOne_logo.png"),
     theme: "purple",
   },
   {
@@ -43,7 +44,7 @@ const certifications: Certification[] = [
     date: "March 2025",
     status: "Earned",
     icon: Award,
-    logo: "/logos/SentinelOne_logo.png",
+    logo: withBase("/logos/SentinelOne_logo.png"),
     theme: "purple",
   },
   {
@@ -52,7 +53,7 @@ const certifications: Certification[] = [
     date: "In Progress",
     status: "In Progress",
     icon: Award,
-    logo: "/logos/Microsoft_logo.png",
+    logo: withBase("/logos/Microsoft_logo.png"),
     theme: "green",
   },
   {
@@ -61,7 +62,7 @@ const certifications: Certification[] = [
     date: "In Progress",
     status: "In Progress",
     icon: Award,
-    logo: "/logos/Darktrace_logo.png",
+    logo: withBase("/logos/Darktrace_logo.png"),
     theme: "orange",
   },
   {
@@ -70,7 +71,7 @@ const certifications: Certification[] = [
     date: "In Progress",
     status: "In Progress",
     icon: Award,
-    logo: "/logos/Darktrace_logo.png",
+    logo: withBase("/logos/Darktrace_logo.png"),
     theme: "orange",
   },
   {
@@ -79,7 +80,7 @@ const certifications: Certification[] = [
     date: "In Progress",
     status: "In Progress",
     icon: Award,
-    logo: "/logos/Darktrace_logo.png",
+    logo: withBase("/logos/Darktrace_logo.png"),
     theme: "orange",
   },
 ]
