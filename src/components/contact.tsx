@@ -3,38 +3,56 @@
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Github, Linkedin, FileText } from "lucide-react"
+import { Mail, Github, Linkedin, FileText, ChevronDown } from "lucide-react"
 import { site } from "@/content/site"
 import { Particles } from "@/components/ui/particles"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 type Accent = "primary" | "secondary" | "accent" | "success"
 
-const contactMethods: Array<{ icon: any; label: string; href: string; accent: Accent }> = [
-  {
-    icon: Mail,
-    label: "Email",
-    href: `mailto:${site.links.email}`,
-    accent: "primary",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: site.links.github,
-    accent: "secondary",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: site.links.linkedin,
-    accent: "accent",
-  },
-  {
-    icon: FileText,
-    label: "Mon CV",
-    href: site.links.resume,
-    accent: "success",
-  },
-]
+const contactMethods: Array<{
+  icon: any;
+  label: string;
+  href: string;
+  accent: Accent;
+  isDropdown?: boolean;
+  dropdownItems?: Array<{ label: string; href: string }>
+}> = [
+    {
+      icon: Mail,
+      label: "Email",
+      href: `mailto:${site.links.email}`,
+      accent: "primary",
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      href: site.links.github,
+      accent: "secondary",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: site.links.linkedin,
+      accent: "accent",
+    },
+    {
+      icon: FileText,
+      label: "Mon CV",
+      href: site.links.resume,
+      accent: "success",
+      isDropdown: true,
+      dropdownItems: [
+        { label: "Français", href: "/CV/CV_FR.pdf" },
+        { label: "English", href: "/CV/EVAN_JOASSON_cybersecurity_intern.pdf" },
+      ]
+    },
+  ]
 
 const accentClasses: Record<Accent, { icon: string; shadow: string; border: string }> = {
   primary: { icon: "text-blue-400", shadow: "hover:shadow-blue-500/20", border: "group-hover:border-blue-500/50" },
@@ -178,32 +196,72 @@ export function Contact() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16 relative z-30">
           {contactMethods.map((method, index) => {
             const Icon = method.icon
             const isExternal = method.href.startsWith("http")
             const accent = accentClasses[method.accent]
 
-            return (
+            const cardContent = (
               <Card
-                key={method.label}
                 className={`bg-slate-900/40 backdrop-blur-sm border-slate-800/60 hover:bg-slate-800/60 transition-all duration-500 group 
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
                 hover:-translate-y-2 hover:shadow-2xl ${accent.border}`}
               >
                 <CardContent className="pt-8 pb-8 flex flex-col items-center gap-4">
-                  <a
-                    href={method.href}
-                    {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="flex flex-col items-center gap-4 w-full h-full"
-                  >
+                  <div className="flex flex-col items-center gap-4 w-full h-full">
                     <div className={`p-4 rounded-full bg-slate-950/50 border border-slate-800 group-hover:scale-110 transition-transform duration-300 ${accent.shadow}`}>
                       <Icon className={`h-6 w-6 ${accent.icon}`} />
                     </div>
-                    <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">{method.label}</span>
-                  </a>
+                    <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors flex items-center justify-center gap-1">
+                      {method.label}
+                      {method.isDropdown && <ChevronDown className="h-4 w-4 opacity-50 transition-transform group-hover:opacity-100 group-data-[state=open]:rotate-180" />}
+                    </span>
+                  </div>
                 </CardContent>
               </Card>
+            )
+
+            if (method.isDropdown) {
+              return (
+                <div key={method.label} className={isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} style={{ transition: 'all 700ms ease-out', transitionDelay: `${index * 100}ms` }}>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="outline-none focus:outline-none w-full text-left group">
+                      {cardContent}
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="center"
+                      sideOffset={8}
+                      className="w-48 bg-slate-900/95 backdrop-blur-xl border-slate-800/80 text-slate-200 shadow-2xl shadow-emerald-900/20 p-1.5"
+                    >
+                      {method.dropdownItems?.map((item) => (
+                        <DropdownMenuItem
+                          key={item.label}
+                          asChild
+                          className="hover:bg-slate-800/80 cursor-pointer focus:bg-slate-800/80 focus:text-white transition-colors py-2.5 px-3 rounded-md"
+                        >
+                          <a href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
+                            <FileText className="mr-3 h-4 w-4 text-emerald-400" />
+                            <span className="font-medium">{item.label}</span>
+                          </a>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
+              )
+            }
+
+            return (
+              <a
+                key={method.label}
+                href={method.href}
+                {...(isExternal && { target: "_blank", rel: "noopener noreferrer" })}
+                className="block w-full h-full"
+                style={{ transition: 'all 700ms ease-out', transitionDelay: `${index * 100}ms` }}
+              >
+                {cardContent}
+              </a>
             )
           })}
         </div>

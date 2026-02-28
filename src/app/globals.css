@@ -366,3 +366,66 @@
 .animate-spin-reverse-slow {
   animation: spin-reverse-slow 45s linear infinite;
 }
+
+/* Construction Banner Animations */
+@keyframes border-gradient-sweep {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes terminal-cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.15), 0 0 20px rgba(245, 158, 11, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.25), 0 0 30px rgba(245, 158, 11, 0.1);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.animate-terminal-cursor {
+  animation: terminal-cursor-blink 1s step-end infinite;
+}
+
+.animate-border-sweep {
+  background-size: 200% 200%;
+  animation: border-gradient-sweep 4s ease infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}

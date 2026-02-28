@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Particles } from "@/components/ui/particles"
 import { CyberTerminals } from "@/components/CyberTerminals"
 import { MatrixText } from "@/components/ui/matrix-text"
+import { Construction } from "lucide-react"
 
 export function Hero() {
   return (
@@ -135,10 +136,43 @@ export function Hero() {
           {/* Left side - Text content */}
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both">
 
-            {/* Portfolio Label */}
-            <span className="text-sm tracking-[0.3em] text-blue-400 font-medium uppercase">
-              Portfolio
-            </span>
+            {/* Construction Warning Badge & Portfolio Label */}
+            <div className="flex flex-col items-start gap-6">
+              {/* Terminal-style construction alert */}
+              <div className="animate-slide-in-left animate-glow-pulse relative overflow-hidden rounded-lg border border-amber-500/30 bg-slate-950/70 backdrop-blur-xl">
+                {/* Animated gradient border glow - top edge */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-[1px] animate-border-sweep"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.8) 25%, rgba(251, 191, 36, 1) 50%, rgba(245, 158, 11, 0.8) 75%, transparent 100%)',
+                    backgroundSize: '200% 100%',
+                  }}
+                />
+                {/* Thick left amber border */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600" />
+                <div className="flex items-center gap-3 pl-5 pr-5 py-2.5">
+                  <span className="text-amber-500 text-sm">▸</span>
+                  <Construction className="w-4 h-4 text-amber-400" />
+                  <span className="font-mono text-sm text-amber-300/90 tracking-wide">
+                    Site en Construction
+                  </span>
+                  <span className="animate-terminal-cursor font-mono text-amber-400 text-sm ml-0.5">▌</span>
+                </div>
+                {/* Animated gradient border glow - bottom edge */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[1px] animate-border-sweep"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.5) 25%, rgba(251, 191, 36, 0.7) 50%, rgba(245, 158, 11, 0.5) 75%, transparent 100%)',
+                    backgroundSize: '200% 100%',
+                    animationDelay: '2s',
+                  }}
+                />
+              </div>
+
+              <span className="text-sm tracking-[0.3em] text-blue-400 font-medium uppercase">
+                Portfolio
+              </span>
+            </div>
 
             {/* Name */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-white leading-[1.1]">
