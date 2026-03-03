@@ -82,7 +82,7 @@ export function About() {
                       <span className="w-1 h-8 bg-blue-500 rounded-full" />
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify">
-                      J'ai eu l'opportunité de travaillé dans plusieurs entreprises et d'encore travailler dans l'une d'elle actuellement
+                      J'ai eu l'opportunité de travaillé dans plusieurs entreprises et d'encore travailler dans l'une d'elle actuellement.
                     </p>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                       Ces expérience me permettent de gagner en maturité, en compétences et en autonomie, mais aussi de m'adapter à différents environnements de travail et de découvrir un très grand nombre de technologie différentes.
@@ -95,7 +95,7 @@ export function About() {
                       <span className="w-1 h-8 bg-purple-500 rounded-full" />
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify">
-                      Croyant fermement à l'intelligence collective, j'aime collaborer mon équipe afin de trouver les solutions optimales face aux problèmes auquel nos clients font face.
+                      Croyant fermement à l'intelligence collective, j'aime collaborer avec mon équipe afin de trouver les solutions optimales face aux problèmes auquel nos clients font face.
                     </p>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export function About() {
                       Mon Parcours
                     </h3>
                     <p className="text-lg text-muted-foreground leading-relaxed text-justify">
-                      Venant d'un BAC proffessionnel <abbr title="Réseaux Informatiques et Systèmes Communicants">RISC</abbr> et ayant ensuite pu parfaire mes compétences en intégrant un <abbr title="Bachelor Universitaire de Technologie Réseaux et Télécommunications">BUT RT</abbr>, je suis aujourd'hui en école d'ingénieur avec une spécialité en cybersécurité, alliant théorie académique et pratique professionnelle grâce à mon alternance.
+                      Venant d'un BAC professionnel <abbr title="Réseaux Informatiques et Systèmes Communicants">RISC</abbr> et ayant ensuite pu parfaire mes compétences en intégrant un <abbr title="Bachelor Universitaire de Technologie Réseaux et Télécommunications">BUT RT</abbr>, je suis aujourd'hui en école d'ingénieur avec une spécialité en cybersécurité, alliant théorie académique et pratique professionnelle grâce à mon alternance.
                     </p>
                   </div>
 
